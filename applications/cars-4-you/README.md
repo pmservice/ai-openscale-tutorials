@@ -19,8 +19,8 @@ Optional services:
 1. Clone repository and enter cloned project directory:
 
    ```bash
-   git clone https://github.com/pmservice/cars-4-you.git
-   cd cars-4-you
+   git clone https://github.com/pmservice/ai-openscale-tutorials.git
+   cd applications/cars-4-you
    ```
 
 2. Update with your services credentials the folowing files:

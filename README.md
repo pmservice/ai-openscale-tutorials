@@ -1,7 +1,7 @@
 # AI OpenScale tutorials.
 
 Tutorial 1. Best Heart drug recommendation
-- Step 1: model creation, deployment as web-service and scoring using Watson Machine Learning - [notebook](https://github.com/pmservice/ai-openscale-tutorials/notebooks//blob/master/Best%20heart%20drug%20recommendation%20-%20model.ipynb)
+- Step 1: model creation, deployment as web-service and scoring using Watson Machine Learning - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Best%20heart%20drug%20recommendation%20-%20model.ipynb)
 - Step 2: data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/notebooks//blob/master/Data%20Mart%20configuration%20and%20usage.ipynb)
 
 

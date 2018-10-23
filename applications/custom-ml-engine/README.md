@@ -23,8 +23,8 @@ User also should have account on Bluemix (IBM Cloud) with active us-south region
 Clone repository and enter cloned project directory:
 
    ```bash
-   $ git clone https://github.com/pmservice/custom-ml-engine
-   $ cd custom-ml-engine
+   $ git clone https://github.com/pmservice/ai-openscale-tutorials
+   $ cd applications/custom-ml-engine
    ```
 
 ### Deployment and run on local environment

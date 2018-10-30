@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .a {
+        fill: #dfe3e6;
+      }
+
+      .b {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <title>Asset 4</title>
+  <g>
+    <circle class="a" cx="36" cy="36" r="36"/>
+    <path class="b" d="M52.81,53.68c-3.48-4.51-9.81-7.54-17.07-7.54-6.9,0-13,2.73-16.55,6.88"/>
+    <g>
+      <ellipse cx="49.5" cy="32" rx="2.56" ry="3.2"/>
+      <ellipse cx="22.5" cy="32" rx="2.56" ry="3.2"/>
+    </g>
+  </g>
+</svg>

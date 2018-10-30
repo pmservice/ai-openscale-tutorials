@@ -12,14 +12,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" href="stylesheets/style.css" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 
 <body class="container-fluid">
 
 	<ul id="sidebar" style="display: none; ">
 		<li style="font-size: 15px;">
-			<img id="sidebar-avatar" src="staticImages/avatar_dark.svg" alt="">
+			<img id="sidebar-avatar" src="{{ url_for('static', filename='images/avatar_dark.svg') }}" alt="">
 			<div id="sidebar-details">
 				<p id="cust-name">John Smith</p>
 				<p style="font-weight: lighter">Member since may 18, 2018</p>
@@ -88,7 +88,7 @@
 				</select>
 			</li>
 			<hr style="margin-top: 20px;">
-			<img id="sidebar-image-delete" src="staticImages/delete_account.svg">
+			<img id="sidebar-image-delete" src="{{ url_for('static', filename='images/delete_account.svg') }}">
 			<button id="sidebar-delete">Delete Account</button>
 			<button id="sidebar-save">Save</button>
 			<button id="sidebar-cancel">Cancel</button>
@@ -97,13 +97,6 @@
 
 	<ul id="sidebar-models" style="display: none; ">
 
-		<li>
-			<a>Satisfaction classification:</a>
-		</li>
-		<li>
-			<select name="" id="nlu-input">
-			</select>
-		</li>
 		<li>
 			<a>Business Area and Action prediction:</a>
 		</li>
@@ -118,13 +111,13 @@
 	</ul>
 
 	<div class="topnavdark">
-		<img id="logoimg" src="staticImages/logo.svg" class="img-fluid">
+		<img id="logoimg" src="{{ url_for('static', filename='images/logo.svg') }}" class="img-fluid">
 		<input id="logout-button" type="button" value="Log Out" />
 		<input id="model-button" type="button" value="Deployments" />
 		<input id="user-welcome" type="button" value="Welcome, John!" />
-		<input id="avatar-button" type="image" src="staticImages/avatar.svg" />
+		<input id="avatar-button" type="image" src="{{ url_for('static', filename='images/avatar.svg') }}" />
 		<a style="float: right;">
-			<img src="staticImages/globe.svg" alt=""> USD
+			<img src="{{ url_for('static', filename='images/globe.svg') }}" alt=""> USD
 		</a>
 		<a style="float: right;">Customer support</a>
 	</div>
@@ -172,8 +165,20 @@
 		<p class="header3">How would you rate your rental experience with Cars4U?</p>
 
 		<div id="question">
-			<img id="sad" src="staticImages/thumb_down.svg" class="img-fluid faceimg">
-			<img id="happy" src="staticImages/thumb_up.svg" class="img-fluid faceimg">
+			<img id="very-sad" src="{{ url_for('static', filename='images/very-sad.svg') }}" class="img-fluid faceimg">
+            <img id="selected-very-sad" src="{{ url_for('static', filename='images/selected_very-sad.svg') }}" class="img-fluid faceimg" style="display: none">
+
+			<img id="sad" src="{{ url_for('static', filename='images/sad.svg') }}" class="img-fluid faceimg">
+            <img id="selected-sad" src="{{ url_for('static', filename='images/selected_sad.svg') }}" class="img-fluid faceimg" style="display: none">
+
+            <img id="neutral" src="{{ url_for('static', filename='images/neutral.svg') }}" class="img-fluid faceimg">
+            <img id="selected-neutral" src="{{ url_for('static', filename='images/selected_neutral.svg') }}" class="img-fluid faceimg" style="display: none">
+
+			<img id="happy" src="{{ url_for('static', filename='images/happy.svg') }}" class="img-fluid faceimg">
+            <img id="selected-happy" src="{{ url_for('static', filename='images/selected_happy.svg') }}" class="img-fluid faceimg" style="display: none">
+
+            <img id="very-happy" src="{{ url_for('static', filename='images/very-happy.svg') }}" class="img-fluid faceimg">
+            <img id="selected-very-happy" src="{{ url_for('static', filename='images/selected_very-happy.svg') }}" class="img-fluid faceimg" style="display: none">
 
 			<p class="header2">Comments</p>
 			<div id="user-feedback" style="width: 50%">
@@ -183,16 +188,15 @@
 		</div>
 		<div id="response">
 			<hr>
-			<img id="response-face" src="staticImages/thumb_down.svg" class="img-fluid response-icon-face">
+			<img id="response-face" src="{{ url_for('static', filename='images/sad.svg') }}" class="img-fluid response-icon-face">
 			<div id="user-comment">
 				<a></a>
 			</div>
 			<hr style="margin-top: 40px">
-			<img src="staticImages/quote.svg" class="img-fluid response-icon-quote">
+			<img src="{{ url_for('static', filename='images/quote.svg') }}" class="img-fluid response-icon-quote">
 			<a id="feedback-title">Thank you for your feedback.</a>
 			<p id="feedback-comment"></p>
 			<hr>
-			<img id="coupon" src="staticImages/coupon.png" class="img-fluid">
 		</div>
 		<div id="error-message">
 			Cannot update non existing deployment
@@ -205,7 +209,7 @@
 		<a class="footerright" style="color: #00bcc3">Terms of Use</a>
 	</footer>
 
-	<script src="scripts/script.js"></script>
+	<script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
 </body>
 
 </html>

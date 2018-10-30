@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .a {
+        fill: #f9d400;
+      }
+
+      .b {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <title>Asset 1</title>
+  <g>
+    <circle class="a" cx="36" cy="36" r="36"/>
+    <g>
+      <polyline class="b" points="18.86 25.26 29.06 28.18 15.94 34.74"/>
+      <polyline class="b" points="53.15 25.26 42.94 28.18 56.06 34.74"/>
+    </g>
+    <path d="M61,41c0,12.43-11.19,22.5-25,22.5S11,53.43,11,41Z"/>
+    <path class="a" d="M36,57a10.92,10.92,0,0,1,7.83,3.28,25.74,25.74,0,0,1-15.66,0A10.92,10.92,0,0,1,36,57"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .a {
+        fill: #f9d400;
+      }
+
+      .b {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <title>Asset 3</title>
+  <g>
+    <circle class="a" cx="36" cy="36" r="36"/>
+    <g>
+      <g>
+        <ellipse cx="49.5" cy="32" rx="2.56" ry="3.2"/>
+        <ellipse cx="22.5" cy="32" rx="2.56" ry="3.2"/>
+      </g>
+      <line class="b" x1="18" y1="50" x2="54" y2="50"/>
+    </g>
+  </g>
+</svg>

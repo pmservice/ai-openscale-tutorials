@@ -30,3 +30,4 @@ def get_wml_vcap():
 
 def get_cos_vcap():
     return get_vcap('cos', None)
+

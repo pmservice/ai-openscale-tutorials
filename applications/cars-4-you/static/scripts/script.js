@@ -1,152 +1,142 @@
-var logoImage = document.getElementById("logoimg")
-var textInput = document.getElementById('user-text');
-var userComment = document.getElementById("user-comment");
-var sadFaceImage = document.getElementById('sad');
-var happyFaceImage = document.getElementById('happy');
-var responseFace = document.getElementById("response-face");
-var sendButton = document.getElementById("send-button");
-var feedbackComment = document.getElementById("feedback-comment");
-var questionBox = document.getElementById("question");
-var responseBox = document.getElementById("response");
-var sidebar = document.getElementById("sidebar");
-var modelSidebar = document.getElementById("sidebar-models");
-var errorPanel = document.getElementById("error-message");
-var saveButton = document.getElementById("sidebar-save");
-var cancelButton = document.getElementById("sidebar-cancel");
-var saveModelButton = document.getElementById("sidebar-model-save");
-var cancelModelButton = document.getElementById("sidebar-model-cancel");
-var customerName = document.getElementById("cust-name");
-var firstName = document.getElementById("first-name-input");
-var secondName = document.getElementById("last-name-input");
-var genderInput = document.getElementById("gender-input");
-var ageInput = document.getElementById("age-input");
-var statusInput = document.getElementById("status-input");
-var childrenInput = document.getElementById("children-input");
-var carownerInput = document.getElementById("owner-input");
-var activeInput = document.getElementById("active-input");
-var areaActionSelection = document.getElementById("area-input");
-var sentimentSelection = document.getElementById("nlu-input");
-var happyFacePath = "staticImages/thumb_up.svg";
-var happyFaceSelectedPath = "staticImages/thumb_up_on.svg";
-var sadFacePath = "staticImages/thumb_down.svg";
-var sadFaceSelectedPath = "staticImages/thumb_down_on.svg";
+let logoImage = document.getElementById("logoimg")
+let textInput = document.getElementById('user-text');
+let userComment = document.getElementById("user-comment");
 
-var payloadData = {
-    "comment": "",
-    "gender": "Male",
-    "status": "S",
-    "childrens": 2,
-    "age": 36,
-    "customer": "Active",
-    "owner": "Yes",
-    "satisfaction": -1
+let verySadFaceImage = document.getElementById('very-sad');
+let sadFaceImage = document.getElementById('sad');
+let neutralFaceImage = document.getElementById('neutral');
+let happyFaceImage = document.getElementById('happy');
+let veryHappyFaceImage = document.getElementById('very-happy');
+
+let responseFace = document.getElementById("response-face");
+let sendButton = document.getElementById("send-button");
+let feedbackComment = document.getElementById("feedback-comment");
+let questionBox = document.getElementById("question");
+let responseBox = document.getElementById("response");
+let sidebar = document.getElementById("sidebar");
+let modelSidebar = document.getElementById("sidebar-models");
+let errorPanel = document.getElementById("error-message");
+let saveButton = document.getElementById("sidebar-save");
+let cancelButton = document.getElementById("sidebar-cancel");
+let saveModelButton = document.getElementById("sidebar-model-save");
+let cancelModelButton = document.getElementById("sidebar-model-cancel");
+let customerName = document.getElementById("cust-name");
+let firstName = document.getElementById("first-name-input");
+let secondName = document.getElementById("last-name-input");
+let genderInput = document.getElementById("gender-input");
+let ageInput = document.getElementById("age-input");
+let statusInput = document.getElementById("status-input");
+let childrenInput = document.getElementById("children-input");
+let carownerInput = document.getElementById("owner-input");
+let activeInput = document.getElementById("active-input");
+let areaActionSelection = document.getElementById("area-input");
+
+let payloadData = {
+    "Customer_Service": "",
+    "Customer_Status": "Inactive",
+    "Gender": "Male",
+    "Status": "S",
+    "Children": 2,
+    "Age": 36,
+    "Customer": "Active",
+    "Car_Owner": "Yes",
+    "Satisfaction": -1
 };
 
-var userData = {
+let userData = {
     "username": "John",
     "lastname" : "Smith",
     "payload": payloadData
 };
 
+let scoringPayload = {
+    "deployment" : {},
+    "payload" : {}
+};
+
+let deployments = [];
+let selectedFace = null;
+
+get_cars4u_deployments();
+
 cancelButton.onclick = function () {
     reset_sidebar();
     show_hide_sidebar();
-}
+};
 
 saveButton.onclick = function () {
     update_customer_name();
     show_hide_sidebar();
-}
+};
 
 cancelModelButton.onclick = function(){
     show_hide_model_sidebar();
-}
+};
 
 saveModelButton.onclick = function() {
     show_hide_model_sidebar();
-    update_models();
-}
+};
 
+logoImage.onclick = function () {
+    location.reload();
+};
+
+sendButton.onclick = function () {
+    let comment = textInput.value;
+    userComment.innerHTML = comment;
+
+    send_request(comment);
+};
+
+verySadFaceImage.addEventListener('click', select_sad);
 sadFaceImage.addEventListener('click', select_sad);
+neutralFaceImage.addEventListener('click', select_happy);
 happyFaceImage.addEventListener('click', select_happy);
+veryHappyFaceImage.addEventListener('click', select_happy);
 
 document.getElementById("avatar-button").addEventListener('click', show_hide_sidebar);
 document.getElementById("user-welcome").addEventListener('click', show_hide_sidebar);
 document.getElementById("logout-button").addEventListener('click', function() { location.reload(); });
-
 document.getElementById("model-button").addEventListener('click', show_hide_model_sidebar);
 
-check_deployments();
 
-logoImage.onclick = function () {
-    location.reload();
-}
+function handleClick(element) {
+    let clickedImage = element.target;
 
-sendButton.onclick = function () {
-    var comment = textInput.value;
-    userComment.innerHTML = comment;
+    deselect_faces();
 
-    if (userData.payload.satisfaction === -1) {
-        send_with_satisfaction(comment);
+    if (clickedImage.src.includes('selected')){
+        clickedImage.src = "/static/images/" + clickedImage.id + ".svg";
     }
     else {
-        send_request(comment);
+        clickedImage.src = "/static/images/selected_" + clickedImage.id + ".svg";
+        selectedFace = clickedImage;
     }
 }
 
-function send_with_satisfaction(text) {
-    $.ajax({
-        method: "POST",
-        contentType: "text/html; charset=utf-8",
-        url: "/analyze/satisfaction",
-        data: text,
-        success: function (data) {
-            if (data === '0') {
-                userData.payload.satisfaction = 0;
-                send_request(text);
-            }
-            else if(data === '1') {
-                userData.payload.satisfaction = 1;
-                send_request(text);
-            }
-            else{
-                userData.payload.satisfaction = 1;
-                send_request(text);
-            }
-        },
-        error: function (data, textStatus) {
-            if (textStatus === "timeout"){
-                print_error("Unable to score Satisfaction AI function. Reason: request timeout");
-            }
-            else{
-                print_error(data['responseText']);
-            }                
-        },
-        timeout: 30000,
-        dataType: "json"
-    });
-}
 
-function get_area_action_deployments() {
+function get_cars4u_deployments() {
     $.get(
-        "/functions/area",
+        "/deployments",
         function (data) {
-            var currentValue = areaActionSelection.value;
+            let currentValue = areaActionSelection.value;
             areaActionSelection.innerHTML = "";
-            if (data['deployments'].length == 0){
-                var opt = document.createElement('option');
-                opt.value = "< no deployments >";
-                opt.innerHTML = "< no deployments >";
+            if (data.length === 0){
+                let opt = document.createElement('option');
+                opt.value = '';
+                opt.innerHTML = "< no CARS4U deployments >";
                 areaActionSelection.appendChild(opt);
             }
             else{
-                data['deployments'].forEach(element => {
-                    var opt = document.createElement('option');
-                    opt.value = element['guid'];
-                    opt.innerHTML = element['name'];
+                deployments = data;
+
+                data.forEach(element => {
+                    let opt = document.createElement('option');
+                    opt.value = element['metadata']['guid'];
+                    opt.innerHTML = element['entity']['name'];
                     areaActionSelection.appendChild(opt);
-                }); 
-                if (currentValue != null && currentValue != ""){
+                });
+                if (currentValue != null && currentValue !== ""){
                     areaActionSelection.value = currentValue;
                 }
             }
@@ -154,65 +144,35 @@ function get_area_action_deployments() {
     );
 }
 
-function get_satisfaction_deployments() {
-    $.get(
-        "/functions/satisfaction",
-        function (data) {
-            var currentValue = sentimentSelection.value;
-            
-            sentimentSelection.innerHTML = "";
-            if (data['deployments'].length == 0){
-                var opt = document.createElement('option');
-                opt.value = "< no deployments >";
-                opt.innerHTML = "< no deployments >";
-                sentimentSelection.appendChild(opt);
-            }
-            else{
-                data['deployments'].forEach(element => {
-                    var opt = document.createElement('option');
-                    opt.value = element['guid'];
-                    opt.innerHTML = element['name'];
-                    sentimentSelection.appendChild(opt);
-                }); 
-                if (currentValue != null && currentValue != ""){
-                    sentimentSelection.value = currentValue;
-                }
-            }
+function get_deployment_object_from_id(deploymentId) {
+
+    let deployment = null;
+    deployments.forEach(element => {
+        if (element['metadata']['guid'] === deploymentId){
+            deployment = element;
         }
-    );
-}
+    });
 
-
-function check_deployments(){
-    get_satisfaction_deployments();
-    get_area_action_deployments();
-
-    $.get(
-        "/checkdeployments",
-        function (data) {
-            if (data){
-                sendButton.disabled = false;
-            }
-            else{
-                sendButton.disabled = true;
-                sendButton.title = "There is no deployments available."
-            }
-        }
-    );
+    return deployment;
 }
 
 function send_request(comment) {
-    userData.payload.comment = comment;
+    userData.payload.Customer_Service = comment;
+
+    scoringPayload.deployment = get_deployment_object_from_id(areaActionSelection.value);
+    scoringPayload.payload = userData.payload;
 
     $.ajax({
         method: "POST",
         contentType: "application/json",
-        url: "/analyze/area",
-        data: JSON.stringify(userData.payload),
+        url: "/score",
+        data: JSON.stringify(scoringPayload),
         success: function (data) {
 
-            update_face(userData.payload.satisfaction);
-            feedbackComment.innerHTML = data['client_response'];
+            feedbackComment.innerHTML = data['text'];
+            if(selectedFace !== null){
+                responseFace.src = selectedFace.src;
+            }
 
             questionBox.style.display = "none";
             responseBox.style.display = "block";
@@ -224,49 +184,36 @@ function send_request(comment) {
     });
 }
 
-function update_models() {
-    var models_payload = {"areaaction" : areaActionSelection.value, "satisfaction" : sentimentSelection.value }
-    
-    $.ajax({
-        method: "POST",
-        contentType: "application/json",
-        url: "/functions",
-        data: JSON.stringify(models_payload),
 
-        error: function (data, textStatus, errorThrown) {
-            print_error(errorThrown);
-        },
-        dataType: "json"
-    });
-
+function select_happy(element) {
+    handleClick(element);
+    userData.payload.Satisfaction = 1;
+    enable_button();
 }
 
-function update_face(satisfaction) {
-    if (satisfaction == 1) {
-        responseFace.src = happyFaceSelectedPath;
-    }
-    else {
-        responseFace.src = sadFaceSelectedPath;
-    }
-}
-
-function select_happy() {
-    happyFaceImage.src = happyFaceSelectedPath;
-    sadFaceImage.src = sadFacePath;
-    userData.payload.satisfaction = 1;
-    sendButton.disabled = false;
-}
-
-function select_sad() {
-    happyFaceImage.src = happyFacePath;
-    sadFaceImage.src = sadFaceSelectedPath;
-    userData.payload.satisfaction = 0;
-    sendButton.disabled = false;
+function select_sad(element) {
+    handleClick(element);
+    userData.payload.Satisfaction = 0;
+    enable_button();
 }
 
 function deselect_faces() {
-    happyFaceImage.src = happyFacePath;
-    sadFaceImage.src = sadFacePath;
+    if (selectedFace !== null) {
+        selectedFace.src = "/static/images/" + selectedFace.id + ".svg";
+        selectedFace = null;
+    }
+    disable_button();
+}
+
+function enable_button() {
+    let text = textInput.value;
+
+    if (text.length > 10 && selectedFace !== null) {
+        sendButton.disabled = false;
+    }
+}
+
+function disable_button() {
     sendButton.disabled = true;
 }
 
@@ -293,7 +240,7 @@ function show_hide_model_sidebar() {
         show_hide_sidebar();
     }
     if (modelSidebar.style.display === "none") {
-        check_deployments();
+        get_cars4u_deployments();
         modelSidebar.style.display = "block";
     }
     else {
@@ -304,12 +251,12 @@ function show_hide_model_sidebar() {
 function update_customer_name() {
     userData.username = firstName.value;
     userData.lastname = secondName.value;
-    userData.payload.gender = genderInput.value;
-    userData.payload.age = ageInput.value;
-    userData.payload.status = statusInput.value;
-    userData.payload.childrens = childrenInput.value;
-    userData.payload.customer = activeInput.value;
-    userData.payload.owner = carownerInput.value;
+    userData.payload.Gender = genderInput.value;
+    userData.payload.Age = ageInput.value;
+    userData.payload.Status = statusInput.value;
+    userData.payload.Children = childrenInput.value;
+    userData.payload.Customer_Status = activeInput.value;
+    userData.payload.Car_Owner = carownerInput.value;
 
     document.getElementById("user-welcome").value = "Welcome, " + firstName.value + "!";
 }
@@ -317,59 +264,28 @@ function update_customer_name() {
 function reset_sidebar() {
     firstName.value = userData.username;
     secondName.value = userData.lastname;
-    genderInput.value = userData.payload.gender;
-    ageInput.value = userData.payload.age;
-    statusInput.value = userData.payload.status;
-    childrenInput.value = userData.payload.childrens;
-    activeInput.value = userData.payload.customer;
-    carownerInput.value = userData.payload.owner;
-
-    // console.log(userData);
+    genderInput.value = userData.payload.Gender;
+    ageInput.value = userData.payload.Age;
+    statusInput.value = userData.payload.Status;
+    childrenInput.value = userData.payload.Children;
+    activeInput.value = userData.payload.Customer_Status;
+    carownerInput.value = userData.payload.Car_Owner;
 }
 
+let timeout = null;
 
-/* DISABLE NLU */
-var timeout = null;
 textInput.onkeyup = function () {
     clearTimeout(timeout);
-    timeout = setTimeout(get_sentiment, 800);
+    timeout = setTimeout(check_typing, 800);
 };
-function get_sentiment() {
-    var text = textInput.value;
+
+function check_typing() {
+    let text = textInput.value;
 
     if (text.length > 10) {
-        $.ajax({
-            method: "POST",
-            contentType: "text/html; charset=utf-8",
-            url: "/analyze/satisfaction",
-            data: text,
-            success: function (data) {
-                if (data === '0') {
-                    select_sad();
-                    userData.payload.satisfaction = 0;
-                }
-                else if(data === '1') {
-                    select_happy();
-                    userData.payload.satisfaction = 1;
-                }
-                else{
-                    select_happy();
-                    userData.payload.satisfaction = 1;
-                }
-            },
-            error: function (data, textStatus) {
-                if (textStatus === "timeout"){
-                    print_error("Unable to score Satisfaction AI function. Reason: request timeout");
-                }
-                else{
-                    print_error(data['responseText']);
-                }                
-            },
-            timeout: 30000,
-            dataType: "json"
-        });
+        enable_button();
     }
     else {
-        deselect_faces();
+        disable_button();
     }
 }

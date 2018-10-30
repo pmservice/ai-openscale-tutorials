@@ -1,6 +1,11 @@
 {
-  "instance_id": "",
-  "password": "",
-  "url": "",
-  "username": ""
+  "apikey": "UolY_50duZfktOa2hs_8GuF0xG2UMSURHn2tC6k3Q8gz",
+  "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:pm-20:us-south:a/e9b0eb4a51b24ae357adc9a1b4480e31:727e122f-8427-457c-b261-c867625fd8d5::",
+  "iam_apikey_name": "auto-generated-apikey-3328afee-c928-497c-8c09-8b0634d31425",
+  "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
+  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/e9b0eb4a51b24ae357adc9a1b4480e31::serviceid:ServiceId-8db1b7b0-31b0-4aef-9d28-3c886c0de3ec",
+  "instance_id": "727e122f-8427-457c-b261-c867625fd8d5",
+  "password": "28f036ff-3653-4054-a7f9-c7ad4bef9442",
+  "url": "https://us-south.ml.cloud.ibm.com",
+  "username": "3328afee-c928-497c-8c09-8b0634d31425"
 }

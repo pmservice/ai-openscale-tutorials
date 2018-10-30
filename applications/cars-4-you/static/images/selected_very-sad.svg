@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .a {
+        fill: #f9d400;
+      }
+
+      .b {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .c {
+        fill: #f0f2ef;
+      }
+    </style>
+  </defs>
+  <title>Asset 5</title>
+  <g>
+    <circle class="a" cx="36" cy="36" r="36"/>
+    <path class="b" d="M52.81,57.68c-3.48-4.51-9.81-7.54-17.07-7.54-6.9,0-13,2.73-16.55,6.88"/>
+    <g>
+      <ellipse cx="49.5" cy="34" rx="2.56" ry="3.2"/>
+      <ellipse cx="22.5" cy="34" rx="2.56" ry="3.2"/>
+    </g>
+    <path class="c" d="M55.5,37.2s6.56,13.12,0,13.12S55.5,37.2,55.5,37.2Z"/>
+    <g>
+      <path class="b" d="M44.4,25a10.05,10.05,0,0,0,5.81,6.54,10.21,10.21,0,0,0,8.39.28"/>
+      <path class="b" d="M27.6,25a10.05,10.05,0,0,1-5.81,6.54,10.21,10.21,0,0,1-8.39.28"/>
+    </g>
+  </g>
+</svg>

@@ -1,5 +1,7 @@
 # Car Rental Sample Application
 
+![](https://github.com/pmservice/ai-openscale-tutorials/raw/master/notebooks/images/cars4u_app.png?raw=true)
+
 ## Requirements
 
 - python 3

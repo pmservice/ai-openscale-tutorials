@@ -42,11 +42,12 @@ Application will be available at `127.0.0.1:5000`.
 ### Deployment and run on IBM Cloud (Bluemix)
 
 1. Modify `manifest.yml` by choosing unique name for your `name` and `route`. 
-```
-  name: <your-name>
-  routes:
-  - route: <your-name>.mybluemix.net
-```
+
+   ```
+     name: <your-name>
+     routes:
+     - route: <your-name>.mybluemix.net
+   ```
 
 2. Run:
 

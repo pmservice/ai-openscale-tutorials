@@ -25,8 +25,7 @@ Optional services:
 
 2. Update with your services credentials the folowing files:
 
-- `vcaps/wml.vcap` (Machine Learning service credentials)
-- `vcaps/nlu.vcap` (Natural Language Understanding credentials).
+- `vcaps/wml.vcap` (Machine Learning service credentials).
 
 ### Deployment and run on local environment
 
@@ -34,7 +33,7 @@ Run:
 
 ```bash
 pip install -r requirements.txt
-export FLASK_APP=server.py
+export FLASK_APP=app.py
 flask run
 ```
 

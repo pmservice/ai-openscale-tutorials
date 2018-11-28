@@ -12,10 +12,14 @@ import os
 from pyspark.sql.session import SparkSession
 
 
+PUBLIC_IP = "173.193.75.3"
+NODE_PORT = "31520"
+
 app = flask.Flask(__name__)
 resnet50_model = None
 action_model = None
 spark = SparkSession.builder.getOrCreate()
+application_url = "http://{}:{}".format(PUBLIC_IP, NODE_PORT)
 
 
 def load_resnet50_model():
@@ -154,7 +158,7 @@ def get_deployments():
                     "entity": {
                         "name": "ResNet50 AIOS compliant deployment",
                         "description": "Keras ResNet50 model deployment for image classification",
-                        "scoring_url": "https://keras-resnet50.mybluemix.net/v1/deployments/resnet50/online",
+                        "scoring_url": "{}/v1/deployments/resnet50/online".format(application_url),
                         "asset": {
                               "name": "resnet50",
                               "guid": "resnet50"
@@ -174,7 +178,7 @@ def get_deployments():
                     "entity": {
                         "name": "ResNet50 AIOS non compliant deployment",
                         "description": "Keras ResNet50 model deployment for image classification",
-                        "scoring_url": "https://keras-resnet50.mybluemix.net/v1/deployments/resnet50_non_compliant/online",
+                        "scoring_url": "{}/v1/deployments/resnet50_non_compliant/online".format(application_url),
                         "asset": {
                               "name": "resnet50",
                               "guid": "resnet50"
@@ -194,7 +198,7 @@ def get_deployments():
                     "entity": {
                         "name": "action deployment",
                         "description": "area and action spark models deployment",
-                        "scoring_url": "https://keras-resnet50.mybluemix.net/v1/deployments/action/online",
+                        "scoring_url": "{}/v1/deployments/action/online".format(application_url),
                         "asset": {
                             "name": "area and action prediction",
                             "guid": "action"

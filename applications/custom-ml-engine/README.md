@@ -45,36 +45,39 @@ Application server will be available at `127.0.0.1:5000`.
 
     - select `US South` as cluster location
     - use Free or Standard cluster type
+    
+2. When the provisioning is completed use worker node Public IP to update `PUBLIC_IP` value in [run_erver.py](run_server.py) file.
+![](images/public_ip.png)
 
-2. Install IBM Cloud prerequisites
+3. Install IBM Cloud prerequisites
 
     https://console.bluemix.net/docs/containers/cs_tutorials.html#prerequisites
     
-3. Create registry namespace
+4. Create registry namespace
 
     ```ibmcloud cr namespace-add <namespace>```
     
-4. Config kubernetes cluster
+5. Config kubernetes cluster
 
     ```bash
     ibmcloud ks cluster-config <cluster_name_or_ID>
     export KUBECONFIG=/Users/<user_name>/.bluemix/plugins/container-service/clusters/pr_firm_cluster/kube-config-prod-par02-pr_firm_cluster.yml
     ```
 
-5. Build and publish docker image
+6. Build and publish docker image
 
     ```bash
     ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/custom-ml-engine:1 .
     ```
 
-6. Deploy application and expose port
+7. Deploy application and expose port
 
     ```bash
     kubectl run custom-ml-engine-deployment --image=registry.<region>.bluemix.net/<namespace>/custom-ml-engine:1
-    kubectl expose deployment/custom-ml-engine-deployment --type=NodePort --port=5000 --name=custom-ml-engine-service --target-port=5000
+    kubectl create -f service.yaml
     ```
 
-7. Get exposed NodePort and worker node public IP
+8. Get exposed NodePort and worker node public IP
 
     ```bash
     kubectl describe service custom-ml-engine-service

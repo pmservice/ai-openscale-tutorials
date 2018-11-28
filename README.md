@@ -6,8 +6,4 @@
 - Step 3: CARS4U - Car rental sample python application - [deployment instruction](https://github.com/pmservice/ai-openscale-tutorials/tree/master/applications/cars-4-you) 
 
 
-**Tutorial 2: Payload logging for 3rd party machine learning engines**
-- Step 1: Create and deploy as web-service model on any machine learning engine
-- Step 2: Enable payload logging for black box deployment - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Payload%20logging%20for%20MS%20Azure%20model.ipynb)
-
 

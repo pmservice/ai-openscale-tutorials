@@ -9,7 +9,7 @@ Custom deployment provides REST API endpoints to score the model (predict image 
 
 ## Requirements
 
-- python 3
+- python 3.5 or 3.6
 - pip
 - python libs: cfenv, Flask, watson-developer-cloud, gevent, requests, tensorflow, keras, ibmcloudenv, livereload, pillow, numpy
 

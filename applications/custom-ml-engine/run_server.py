@@ -62,7 +62,12 @@ def convert_vector(value):
 
 
 def convert_values(array):
-    return [[convert_vector(item) for item in array[0]]]
+    values = []
+
+    for a in array:
+        values.append([convert_vector(item) for item in a])
+
+    return values
 
 
 @app.route("/v1/deployments/resnet50_non_compliant/online", methods=["POST"])

@@ -68,7 +68,7 @@ Application server will be available at `127.0.0.1:5000`.
     export KUBECONFIG=/Users/<user_name>/.bluemix/plugins/container-service/clusters/pr_firm_cluster/kube-config-prod-par02-pr_firm_cluster.yml
     ```
 
-6. Build and publish docker image (example of <region> can be: ng)
+6. Build and publish docker image (`<region>` can be for example: `ng`)
 
     ```bash
     ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/custom-ml-engine:1 .

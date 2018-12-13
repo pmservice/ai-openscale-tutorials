@@ -7,5 +7,5 @@
 
 
 **Tutorial 2. Working with Custom Machine Learning engine**
-- Step 1: Creation of Custom Machine Learning engine using Kubernetes cluster - [instruction](https://github.com/pmservice/ai-openscale-tutorials/tree/master/applications/custom-ml-engine)
+- Step 1: Creation of Custom Machine Learning engine using Kubernetes cluster - [deployment instruction](https://github.com/pmservice/ai-openscale-tutorials/tree/master/applications/custom-ml-engine)
 - Step 2: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20Custom%20ML%20Engine.ipynb)

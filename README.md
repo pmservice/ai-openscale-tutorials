@@ -13,3 +13,8 @@
 
 **Tutorial 3. Working with Azure Machine Learning Studio engine**
 - Step 1: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20Azure%20ML%20Studio%20Engine.ipynb)
+
+
+**Tutorial 4. Working with Amazon SageMaker Machine Learning engine**
+- Step 1: Creation and deployment of breast cancer prediction model - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Breast%20cancer%20model%20with%20SageMaker%20linear-learner.ipynb)
+- Step 1: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20SageMaker%20ML%20Engine.ipynb)

@@ -1,0 +1,1353 @@
+{
+  "common_configuration": {
+    "problem_type": "binary",
+    "label_column": "Risk",
+    "input_data_schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "nullable": true,
+          "name": "CheckingStatus",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "LoanDuration",
+          "metadata": {
+            "modeling_role": "feature"
+          },
+          "type": "integer"
+        },
+        {
+          "nullable": true,
+          "name": "CreditHistory",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "LoanPurpose",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "LoanAmount",
+          "metadata": {
+            "modeling_role": "feature"
+          },
+          "type": "integer"
+        },
+        {
+          "nullable": true,
+          "name": "ExistingSavings",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "EmploymentDuration",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "InstallmentPercent",
+          "metadata": {
+            "modeling_role": "feature"
+          },
+          "type": "integer"
+        },
+        {
+          "nullable": true,
+          "name": "Sex",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "OthersOnLoan",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "CurrentResidenceDuration",
+          "metadata": {
+            "modeling_role": "feature"
+          },
+          "type": "integer"
+        },
+        {
+          "nullable": true,
+          "name": "OwnsProperty",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "Age",
+          "metadata": {
+            "modeling_role": "feature"
+          },
+          "type": "integer"
+        },
+        {
+          "nullable": true,
+          "name": "InstallmentPlans",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "Housing",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "ExistingCreditsCount",
+          "metadata": {
+            "modeling_role": "feature"
+          },
+          "type": "integer"
+        },
+        {
+          "nullable": true,
+          "name": "Job",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "Dependents",
+          "metadata": {
+            "modeling_role": "feature"
+          },
+          "type": "integer"
+        },
+        {
+          "nullable": true,
+          "name": "Telephone",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "ForeignWorker",
+          "metadata": {
+            "modeling_role": "feature",
+            "measure": "discrete"
+          },
+          "type": "string"
+        },
+        {
+          "nullable": true,
+          "name": "Risk",
+          "metadata": {},
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "fairness_configuration": {
+    "distributions": [
+      {
+        "class_labels": [
+          {
+            "counts": [
+              {
+                "class_value": "Risk",
+                "count": 9
+              }
+            ],
+            "label": "[61, 63]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 243
+              },
+              {
+                "class_value": "Risk",
+                "count": 111
+              }
+            ],
+            "label": "[35, 37]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "Risk",
+                "count": 5
+              }
+            ],
+            "label": "[69, 71]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "Risk",
+                "count": 1
+              }
+            ],
+            "label": "[71, 73]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 113
+              },
+              {
+                "class_value": "Risk",
+                "count": 134
+              }
+            ],
+            "label": "[45, 47]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 190
+              },
+              {
+                "class_value": "Risk",
+                "count": 116
+              }
+            ],
+            "label": "[37, 39]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 217
+              },
+              {
+                "class_value": "Risk",
+                "count": 92
+              }
+            ],
+            "label": "[33, 35]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 74
+              },
+              {
+                "class_value": "Risk",
+                "count": 124
+              }
+            ],
+            "label": "[47, 49]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 37
+              },
+              {
+                "class_value": "Risk",
+                "count": 92
+              }
+            ],
+            "label": "[51, 53]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 145
+              },
+              {
+                "class_value": "Risk",
+                "count": 8
+              }
+            ],
+            "label": "[19, 21]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 25
+              },
+              {
+                "class_value": "Risk",
+                "count": 73
+              }
+            ],
+            "label": "[53, 55]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 260
+              },
+              {
+                "class_value": "Risk",
+                "count": 41
+              }
+            ],
+            "label": "[27, 29]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 124
+              },
+              {
+                "class_value": "Risk",
+                "count": 142
+              }
+            ],
+            "label": "[43, 45]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 2
+              },
+              {
+                "class_value": "Risk",
+                "count": 11
+              }
+            ],
+            "label": "[60, 61]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 166
+              },
+              {
+                "class_value": "Risk",
+                "count": 122
+              }
+            ],
+            "label": "[41, 43]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 1
+              },
+              {
+                "class_value": "Risk",
+                "count": 17
+              }
+            ],
+            "label": "[59, 60]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 251
+              },
+              {
+                "class_value": "Risk",
+                "count": 75
+              }
+            ],
+            "label": "[31, 33]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 191
+              },
+              {
+                "class_value": "Risk",
+                "count": 19
+              }
+            ],
+            "label": "[23, 25]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "Risk",
+                "count": 2
+              }
+            ],
+            "label": "[73, 75]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 109
+              },
+              {
+                "class_value": "Risk",
+                "count": 30
+              }
+            ],
+            "label": "[29, 30]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 1
+              },
+              {
+                "class_value": "Risk",
+                "count": 3
+              }
+            ],
+            "label": "[65, 67]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 55
+              },
+              {
+                "class_value": "Risk",
+                "count": 113
+              }
+            ],
+            "label": "[49, 51]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 10
+              },
+              {
+                "class_value": "Risk",
+                "count": 49
+              }
+            ],
+            "label": "[55, 57]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 135
+              },
+              {
+                "class_value": "Risk",
+                "count": 35
+              }
+            ],
+            "label": "[30, 31]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "Risk",
+                "count": 10
+              }
+            ],
+            "label": "[63, 65]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 170
+              },
+              {
+                "class_value": "Risk",
+                "count": 16
+              }
+            ],
+            "label": "[21, 23]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 6
+              },
+              {
+                "class_value": "Risk",
+                "count": 37
+              }
+            ],
+            "label": "[57, 59]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 393
+              },
+              {
+                "class_value": "Risk",
+                "count": 24
+              }
+            ],
+            "label": "[17, 19]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 202
+              },
+              {
+                "class_value": "Risk",
+                "count": 33
+              }
+            ],
+            "label": "[25, 27]"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 210
+              },
+              {
+                "class_value": "Risk",
+                "count": 126
+              }
+            ],
+            "label": "[39, 41]"
+          }
+        ],
+        "min": 19.0,
+        "attribute": "Age",
+        "max": 74.0
+      },
+      {
+        "distinct_values": [
+          "female",
+          "male"
+        ],
+        "attribute": "Sex",
+        "class_labels": [
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 1414
+              },
+              {
+                "class_value": "Risk",
+                "count": 281
+              }
+            ],
+            "label": "female"
+          },
+          {
+            "counts": [
+              {
+                "class_value": "No Risk",
+                "count": 1916
+              },
+              {
+                "class_value": "Risk",
+                "count": 1389
+              }
+            ],
+            "label": "male"
+          }
+        ]
+      },
+      {
+        "distinct_values": [
+          "Risk",
+          "No Risk"
+        ],
+        "attribute": "Risk",
+        "is_class_label": true
+      }
+    ],
+    "parameters": {
+      "model_type": "binary",
+      "unfavourable_class": [
+        "Risk"
+      ],
+      "min_records": 10,
+      "features": [
+        {
+          "majority": [
+            [
+              31,
+              60
+            ]
+          ],
+          "minority": [
+            [
+              15,
+              30
+            ],
+            [
+              61,
+              120
+            ]
+          ],
+          "type": "int",
+          "feature": "Age",
+          "threshold": 0.8
+        },
+        {
+          "majority": [
+            "male"
+          ],
+          "minority": [
+            "female"
+          ],
+          "type": "string",
+          "feature": "Sex",
+          "threshold": 0.8
+        }
+      ],
+      "favourable_class": [
+        "No Risk"
+      ]
+    }
+  },
+  "explainability_configuration": {
+    "stds": {
+      "1": 11.161727061705102,
+      "10": 1.1155905879846781,
+      "4": 2487.983946968911,
+      "12": 10.647470602917858,
+      "7": 1.126982803772977,
+      "15": 0.565358611856227,
+      "17": 0.3708191472942033
+    },
+    "categorical_columns_encoding_mapping": {
+      "0": [
+        "0_to_200",
+        "greater_200",
+        "less_0",
+        "no_checking"
+      ],
+      "13": [
+        "bank",
+        "none",
+        "stores"
+      ],
+      "2": [
+        "all_credits_paid_back",
+        "credits_paid_to_date",
+        "no_credits",
+        "outstanding_credit",
+        "prior_payments_delayed"
+      ],
+      "14": [
+        "free",
+        "own",
+        "rent"
+      ],
+      "3": [
+        "appliances",
+        "business",
+        "car_new",
+        "car_used",
+        "education",
+        "furniture",
+        "other",
+        "radio_tv",
+        "repairs",
+        "retraining",
+        "vacation"
+      ],
+      "6": [
+        "1_to_4",
+        "4_to_7",
+        "greater_7",
+        "less_1",
+        "unemployed"
+      ],
+      "9": [
+        "co-applicant",
+        "guarantor",
+        "none"
+      ],
+      "5": [
+        "100_to_500",
+        "500_to_1000",
+        "greater_1000",
+        "less_100",
+        "unknown"
+      ],
+      "11": [
+        "car_other",
+        "real_estate",
+        "savings_insurance",
+        "unknown"
+      ],
+      "19": [
+        "no",
+        "yes"
+      ],
+      "16": [
+        "management_self-employed",
+        "skilled",
+        "unemployed",
+        "unskilled"
+      ],
+      "8": [
+        "female",
+        "male"
+      ],
+      "18": [
+        "none",
+        "yes"
+      ]
+    },
+    "base_values": {
+      "1": 21.0,
+      "10": 3.0,
+      "14": "own",
+      "0": "no_checking",
+      "19": "yes",
+      "13": "none",
+      "2": "prior_payments_delayed",
+      "7": 3.0,
+      "15": 1.0,
+      "17": 1.0,
+      "3": "car_new",
+      "6": "1_to_4",
+      "9": "none",
+      "5": "less_100",
+      "11": "savings_insurance",
+      "4": 3238.5,
+      "12": 36.0,
+      "16": "skilled",
+      "8": "male",
+      "18": "none"
+    },
+    "d_mins": {
+      "1": [
+        4,
+        13.0,
+        21.0,
+        29.0
+      ],
+      "10": [
+        1,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "4": [
+        250,
+        1326.75,
+        3238.5,
+        5355.0
+      ],
+      "12": [
+        19,
+        28.0,
+        36.0,
+        44.0
+      ],
+      "7": [
+        1,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "15": [
+        1,
+        1.0,
+        2.0
+      ],
+      "17": [
+        1,
+        1.0
+      ]
+    },
+    "feature_columns": [
+      "CheckingStatus",
+      "LoanDuration",
+      "CreditHistory",
+      "LoanPurpose",
+      "LoanAmount",
+      "ExistingSavings",
+      "EmploymentDuration",
+      "InstallmentPercent",
+      "Sex",
+      "OthersOnLoan",
+      "CurrentResidenceDuration",
+      "OwnsProperty",
+      "Age",
+      "InstallmentPlans",
+      "Housing",
+      "ExistingCreditsCount",
+      "Job",
+      "Dependents",
+      "Telephone",
+      "ForeignWorker"
+    ],
+    "feature_frequencies": {
+      "1": [
+        1375,
+        1172,
+        1205,
+        1248
+      ],
+      "10": [
+        1886,
+        1677,
+        1080,
+        357
+      ],
+      "14": [
+        739,
+        3195,
+        1066
+      ],
+      "0": [
+        1304,
+        305,
+        1398,
+        1993
+      ],
+      "19": [
+        123,
+        4877
+      ],
+      "13": [
+        466,
+        3517,
+        1017
+      ],
+      "2": [
+        769,
+        1490,
+        117,
+        938,
+        1686
+      ],
+      "7": [
+        1705,
+        1636,
+        1206,
+        453
+      ],
+      "15": [
+        2847,
+        1978,
+        175
+      ],
+      "17": [
+        4177,
+        823
+      ],
+      "3": [
+        561,
+        146,
+        945,
+        808,
+        167,
+        853,
+        113,
+        755,
+        283,
+        164,
+        205
+      ],
+      "6": [
+        1470,
+        1400,
+        930,
+        904,
+        296
+      ],
+      "9": [
+        717,
+        110,
+        4173
+      ],
+      "5": [
+        1133,
+        1078,
+        558,
+        1856,
+        375
+      ],
+      "11": [
+        1540,
+        1087,
+        1660,
+        713
+      ],
+      "4": [
+        1250,
+        1250,
+        1251,
+        1249
+      ],
+      "12": [
+        1354,
+        1279,
+        1230,
+        1137
+      ],
+      "16": [
+        641,
+        3400,
+        286,
+        673
+      ],
+      "8": [
+        1695,
+        3305
+      ],
+      "18": [
+        2941,
+        2059
+      ]
+    },
+    "categorical_columns": [
+      "CheckingStatus",
+      "CreditHistory",
+      "LoanPurpose",
+      "ExistingSavings",
+      "EmploymentDuration",
+      "Sex",
+      "OthersOnLoan",
+      "OwnsProperty",
+      "InstallmentPlans",
+      "Housing",
+      "Job",
+      "Telephone",
+      "ForeignWorker"
+    ],
+    "feature_values": {
+      "1": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "10": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "14": [
+        0,
+        1,
+        2
+      ],
+      "0": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "19": [
+        0,
+        1
+      ],
+      "13": [
+        0,
+        1,
+        2
+      ],
+      "2": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "7": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "15": [
+        0,
+        1,
+        2
+      ],
+      "17": [
+        0,
+        1
+      ],
+      "3": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "6": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "9": [
+        0,
+        1,
+        2
+      ],
+      "5": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "11": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "12": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "16": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "8": [
+        0,
+        1
+      ],
+      "18": [
+        0,
+        1
+      ]
+    },
+    "mins": {
+      "1": 4,
+      "10": 1,
+      "4": 250,
+      "12": 19,
+      "7": 1,
+      "15": 1,
+      "17": 1
+    },
+    "d_stds": {
+      "1": [
+        3.277136423855652,
+        2.3104647243135257,
+        2.2016780501487694,
+        5.480360081360561
+      ],
+      "10": [
+        0.4734861934310266,
+        1e-11,
+        1e-11,
+        0.09128386968395145
+      ],
+      "4": [
+        341.97517167327516,
+        542.3014505752415,
+        614.7408612958544,
+        1206.6756003938751
+      ],
+      "12": [
+        3.3320991295514313,
+        2.2814080024457186,
+        2.2498714352952085,
+        4.849734375521442
+      ],
+      "7": [
+        0.4586405260990112,
+        1e-11,
+        1e-11,
+        0.1953361748941403
+      ],
+      "15": [
+        1e-11,
+        1e-11,
+        0.0753766054858451
+      ],
+      "17": [
+        1e-11,
+        1e-11
+      ]
+    },
+    "d_means": {
+      "1": [
+        7.876363636363636,
+        17.343856655290104,
+        25.615767634854773,
+        36.010416666666664
+      ],
+      "10": [
+        1.6606574761399788,
+        3.0,
+        4.0,
+        5.008403361344538
+      ],
+      "4": [
+        480.6648,
+        2291.952,
+        4282.900079936051,
+        6867.1305044035225
+      ],
+      "12": [
+        22.81831610044313,
+        32.60750586395621,
+        40.36829268292683,
+        50.49076517150396
+      ],
+      "7": [
+        1.6991202346041057,
+        3.0,
+        4.0,
+        5.039735099337748
+      ],
+      "15": [
+        1.0,
+        2.0,
+        3.005714285714286
+      ],
+      "17": [
+        1.0,
+        2.0
+      ]
+    },
+    "d_bins": {
+      "1": [
+        13.0,
+        21.0,
+        29.0
+      ],
+      "10": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "4": [
+        1326.75,
+        3238.5,
+        5355.0
+      ],
+      "12": [
+        28.0,
+        36.0,
+        44.0
+      ],
+      "7": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "15": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "17": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "class_labels": [
+      "No Risk",
+      "Risk"
+    ],
+    "maxs": {
+      "1": 64,
+      "10": 6,
+      "4": 11676,
+      "12": 74,
+      "7": 6,
+      "15": 4,
+      "17": 2
+    },
+    "categorical_counts": {
+      "0": {
+        "0_to_200": 1304,
+        "no_checking": 1993,
+        "less_0": 1398,
+        "greater_200": 305
+      },
+      "13": {
+        "none": 3517,
+        "stores": 1017,
+        "bank": 466
+      },
+      "2": {
+        "outstanding_credit": 938,
+        "all_credits_paid_back": 769,
+        "credits_paid_to_date": 1490,
+        "no_credits": 117,
+        "prior_payments_delayed": 1686
+      },
+      "14": {
+        "own": 3195,
+        "free": 739,
+        "rent": 1066
+      },
+      "3": {
+        "vacation": 205,
+        "radio_tv": 755,
+        "retraining": 164,
+        "other": 113,
+        "car_new": 945,
+        "business": 146,
+        "furniture": 853,
+        "appliances": 561,
+        "repairs": 283,
+        "education": 167,
+        "car_used": 808
+      },
+      "6": {
+        "greater_7": 930,
+        "less_1": 904,
+        "4_to_7": 1400,
+        "unemployed": 296,
+        "1_to_4": 1470
+      },
+      "9": {
+        "none": 4173,
+        "co-applicant": 717,
+        "guarantor": 110
+      },
+      "5": {
+        "100_to_500": 1133,
+        "unknown": 375,
+        "500_to_1000": 1078,
+        "greater_1000": 558,
+        "less_100": 1856
+      },
+      "11": {
+        "unknown": 713,
+        "car_other": 1540,
+        "real_estate": 1087,
+        "savings_insurance": 1660
+      },
+      "19": {
+        "yes": 4877,
+        "no": 123
+      },
+      "16": {
+        "skilled": 3400,
+        "management_self-employed": 641,
+        "unskilled": 673,
+        "unemployed": 286
+      },
+      "8": {
+        "female": 1695,
+        "male": 3305
+      },
+      "18": {
+        "none": 2941,
+        "yes": 2059
+      }
+    },
+    "d_maxs": {
+      "1": [
+        13.0,
+        21.0,
+        29.0,
+        64
+      ],
+      "10": [
+        2.0,
+        3.0,
+        4.0,
+        6
+      ],
+      "4": [
+        1326.75,
+        3238.5,
+        5355.0,
+        11676
+      ],
+      "12": [
+        28.0,
+        36.0,
+        44.0,
+        74
+      ],
+      "7": [
+        2.0,
+        3.0,
+        4.0,
+        6
+      ],
+      "15": [
+        1.0,
+        2.0,
+        4
+      ],
+      "17": [
+        1.0,
+        2
+      ]
+    }
+  }
+}

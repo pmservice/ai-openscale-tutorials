@@ -1,5 +1,5 @@
 # Custom machine learning engine
-## Serving Keras and Spark models
+## Serving Keras, Spark and Scikit-learn models
 
 The repository contains the code for creating custom deployment of Keras ResNet50 model (images classification) and Spark MLlib (CARS4U) on IBM Cloud.
 Custom deployment provides REST API endpoints to score the model (predict image class) and to list deployment endpoints.
@@ -11,7 +11,7 @@ Custom deployment provides REST API endpoints to score the model (predict image 
 
 - python 3.5 or 3.6
 - pip
-- python libs: cfenv, Flask, watson-developer-cloud, gevent, requests, tensorflow, keras, ibmcloudenv, livereload, pillow, numpy
+- python libs: cfenv, Flask, watson-developer-cloud, gevent, requests, tensorflow, keras, ibmcloudenv, livereload, pillow, numpy, scikit-learn
 
 User also should have account on Bluemix (IBM Cloud) with active us-south region. 
 

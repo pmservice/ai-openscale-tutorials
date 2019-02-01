@@ -11,3 +11,4 @@ pillow
 numpy
 pyspark
 pandas
+scikit-learn

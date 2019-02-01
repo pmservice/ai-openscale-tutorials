@@ -10,6 +10,7 @@ import flask
 import io
 import os
 from pyspark.sql.session import SparkSession
+from sklearn.externals import joblib
 
 
 PUBLIC_IP = "173.193.75.3"
@@ -18,6 +19,7 @@ NODE_PORT = "31520"
 app = flask.Flask(__name__)
 resnet50_model = None
 action_model = None
+credit_model = None
 spark = SparkSession.builder.getOrCreate()
 application_url = "http://{}:{}".format(PUBLIC_IP, NODE_PORT)
 
@@ -35,6 +37,13 @@ def load_action_model():
 
     action_model_path = os.path.join(os.getcwd(), 'models', 'action')
     action_model = PipelineModel.load(action_model_path)
+
+
+def load_credit_model():
+    global credit_model
+
+    credit_model_path = os.path.join(os.getcwd(), 'models', 'credit', 'german_credit_risk.joblib')
+    credit_model = joblib.load(credit_model_path)
 
 
 def preprocess_image(image, target_shape=None):
@@ -146,6 +155,24 @@ def action_online():
     return flask.jsonify(response)
 
 
+@app.route("/v1/deployments/credit/online", methods=["POST"])
+def credit_online():
+    response = {}
+    labels = ['Risk', 'No Risk']
+
+    if flask.request.method == "POST":
+        payload = flask.request.get_json()
+
+        if payload is not None:
+            df = pd.DataFrame.from_records(payload['values'], columns=payload['fields'])
+            scores = credit_model['model'].predict_proba(df).tolist()
+            predictions = credit_model['postprocessing'](credit_model['model'].predict(df))
+            response = {'fields': ['prediction', 'probability'], 'labels': labels,
+                        'values': list(map(list, list(zip(predictions, scores))))}
+
+    return flask.jsonify(response)
+
+
 @app.route("/v1/deployments", methods=["GET"])
 def get_deployments():
     response = {}
@@ -176,21 +203,21 @@ def get_deployments():
                 },
                 {
                     "metadata": {
-                        "guid": "resnet50_non_compliant",
-                        "created_at": "2016-12-01T10:11:12Z",
-                        "modified_at": "2016-12-02T12:00:22Z"
+                        "guid": "german_credit_risk",
+                        "created_at": "2019-01-01T10:11:12Z",
+                        "modified_at": "2019-01-02T12:00:22Z"
                     },
                     "entity": {
-                        "name": "ResNet50 AIOS non compliant deployment",
-                        "description": "Keras ResNet50 model deployment for image classification",
-                        "scoring_url": "{}/v1/deployments/resnet50_non_compliant/online".format(application_url),
+                        "name": "German credit risk compliant deployment",
+                        "description": "Scikit-learn credit risk model deployment",
+                        "scoring_url": "{}/v1/deployments/credit/online".format(application_url),
                         "asset": {
-                              "name": "resnet50",
-                              "guid": "resnet50"
+                              "name": "credit",
+                              "guid": "credit"
                         },
                         "asset_properties": {
-                               "problem_type": "multiclass",
-                               "input_data_type": "unstructured_image",
+                               "problem_type": "binary",
+                               "input_data_type": "structured",
                         }
                     }
                 },
@@ -224,5 +251,6 @@ def get_deployments():
 if __name__ == "__main__":
     load_resnet50_model()
     load_action_model()
+    load_credit_model()
     port = os.getenv('PORT', '5000')
     app.run(host='0.0.0.0', port=int(port))

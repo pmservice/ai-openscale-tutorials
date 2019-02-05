@@ -1,1 +1,1 @@
-# AI OpenScale sample notebooks.
+# OpenScale sample notebooks.

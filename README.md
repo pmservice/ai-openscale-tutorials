@@ -1,4 +1,4 @@
-# AI OpenScale tutorials.
+# IBM Watson OpenScale tutorials.
 
 **Tutorial 1. Working with Watson Machine Learning engine** 
 - Step 1: CARS4U action recommendation model creation, deployment as web-service and scoring using Watson Machine Learning - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/CARS4U%20action%20recommendation%20-%20model.ipynb)

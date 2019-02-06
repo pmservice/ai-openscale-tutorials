@@ -96,7 +96,7 @@ Application will be available with the following URL: `http://<IP_address>:<Node
 Request:
 ```python
 KERAS_REST_API_URL = 'http://169.xx.xxx.xxx:30080/v1/deployments'
-header = {'Authorization':'Bearer xxx'}
+header = {'Content-Type':'application/json'}
 r = requests.get(KERAS_REST_API_URL, headers=header)
 
 print(str(r.text))
@@ -128,7 +128,7 @@ def prepare_payload(image_path):
 KERAS_REST_API_URL = "http://169.xx.xxx.xxx:30080/v1/deployments/compliant/online"
 
 payload = prepare_payload('labrador.jpg')
-header = {'Content-Type':'application/json', 'Authorization':'Bearer xxx'}
+header = {'Content-Type':'application/json'}
 
 r = requests.post(KERAS_REST_API_URL, json=payload, headers=header)
 
@@ -146,3 +146,4 @@ Response:
 3. [REST API specification](https://aiopenscale-custom-deployement-spec.mybluemix.net/)
 4. [Sample notebook:  Custom deployment scoring examples](TBD)
 5. [Sample notebook: Data Mart configuration for custom deployment](TBD)
+

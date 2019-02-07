@@ -4,7 +4,7 @@
 The repository contains the code for creating custom deployment of Keras ResNet50 model (images classification) and Spark MLlib (CARS4U) on IBM Cloud.
 Custom deployment provides REST API endpoints to score the model (predict image class) and to list deployment endpoints.
 
-**Note**: To be able to integrate custom deployment with [AI OpenScale](https://console.bluemix.net/catalog/services/ai-openscale) features it must follow [REST API specification](https://aiopenscale-custom-deployement-spec.mybluemix.net/).
+**Note**: To be able to integrate custom deployment with [Watson OpenScale](https://console.bluemix.net/catalog/services/ai-openscale) features it must follow [REST API specification](https://aiopenscale-custom-deployement-spec.mybluemix.net/).
 
 
 ## Requirements

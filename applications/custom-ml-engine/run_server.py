@@ -203,7 +203,7 @@ def get_deployments():
                 },
                 {
                     "metadata": {
-                        "guid": "german_credit_risk",
+                        "guid": "credit",
                         "created_at": "2019-01-01T10:11:12Z",
                         "modified_at": "2019-01-02T12:00:22Z"
                     },

@@ -15,7 +15,7 @@
 
 **Tutorial 4. Working with Amazon SageMaker Machine Learning engine**
 - Step 1: Creation and deployment of credit risk prediction model - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Credit%20%20model%20with%20SageMaker%20linear-learner%20.ipynb)
-- Step 2: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Watson%20OpenScale%20and%20SageMaker%20ML%20Engine.ipynb)
+- Step 2: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20SageMaker%20ML%20Engine.ipynb)
 
 
 **Tutorial 5. Working with IBM SPSS C&DS engine**

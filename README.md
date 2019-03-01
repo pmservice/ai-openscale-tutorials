@@ -1,7 +1,7 @@
 # IBM Watson OpenScale tutorials.
 
 **Tutorial 1. Working with Watson Machine Learning engine** 
-- Step 1: Credit risk prediction model creation, deployment as web-service and monitoring using Watson OpenScale - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Watson%20OpenScale%20and%20Watson%20ML%20Engine.ipynb) 
+- Step 1: Credit risk prediction model creation, deployment as web-service and monitoring using Watson OpenScale - [notebook](https://github.com/emartensibm/german-credit/blob/master/german_credit_lab.ipynb) 
 
 
 **Tutorial 2. Working with Custom Machine Learning engine**

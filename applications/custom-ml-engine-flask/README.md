@@ -24,7 +24,7 @@ Clone repository and enter cloned project directory:
 
    ```bash
    $ git clone https://github.com/pmservice/ai-openscale-tutorials
-   $ cd applications/custom-ml-engine
+   $ cd applications/custom-ml-engine-flask
    ```
 
 ### Deployment and run on local environment
@@ -41,55 +41,9 @@ Application server will be available at `127.0.0.1:5000`.
 
 ### Deployment and run on IBM Cloud (Bluemix)
 
-1. Create Kubernetes Cluster on IBM Cloud
-
-    - select `US South` as cluster location
-    - use Free or Standard cluster type
+TBD
+   
     
-2. When the provisioning is completed use worker node Public IP to update `PUBLIC_IP` value in [run_erver.py](run_server.py) file.
-![](images/public_ip.png)
-
-3. Install IBM Cloud prerequisites
-
-    https://console.bluemix.net/docs/containers/cs_tutorials.html#prerequisites
-    
-4. Create registry namespace
-
-    ```ibmcloud cr namespace-add <namespace>```
-    
-5. Config kubernetes cluster
-
-    ```bash
-    ibmcloud ks cluster-config <cluster_name_or_ID>
-    ```
-    Copy the returned command and run:
-    
-    ```bash
-    export KUBECONFIG=/Users/<user_name>/.bluemix/plugins/container-service/clusters/pr_firm_cluster/kube-config-prod-par02-pr_firm_cluster.yml
-    ```
-
-6. Build and publish docker image (`<region>` can be for example: `ng`)
-
-    ```bash
-    ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/custom-ml-engine:1 .
-    ```
-
-7. Deploy application and expose port
-
-    ```bash
-    kubectl run custom-ml-engine-deployment --image=registry.<region>.bluemix.net/<namespace>/custom-ml-engine:1
-    kubectl create -f service.yaml
-    ```
-
-8. Get exposed NodePort and worker node public IP
-
-    ```bash
-    kubectl describe service custom-ml-engine-service
-    ibmcloud ks workers <cluster_name_or_ID>
-    ```
-    
-Application will be available with the following URL: `http://<IP_address>:<NodePort>`
-
 ## Submitting REST API requests
 
 ### List deployments

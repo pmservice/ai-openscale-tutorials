@@ -173,6 +173,26 @@ def get_deployments():
                                "input_data_type": "structured",
                         }
                     }
+                },
+                {
+                    "metadata": {
+                        "guid": "wallmart",
+                        "created_at": "2019-01-01T10:11:12Z",
+                        "modified_at": "2019-01-02T12:00:22Z"
+                    },
+                    "entity": {
+                        "name": "wallmart exercise",
+                        "description": "azure model deployment",
+                        "scoring_url": "{}/v1/deployments/wallmart/online".format(application_url),
+                        "asset": {
+                            "name": "wallmart",
+                            "guid": "wallmart"
+                        },
+                        "asset_properties": {
+                            "problem_type": "multiclass",
+                            "input_data_type": "structured",
+                        }
+                    }
                 }
             ]
         }

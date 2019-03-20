@@ -1,7 +1,7 @@
 # Custom machine learning engine
 ## Serving Keras, Spark and Scikit-learn models
 
-The repository contains the code for creating custom deployment of Keras ResNet50 model (images classification) and Spark MLlib (CARS4U) on IBM Cloud.
+The repository contains the code for creating custom deployment of Keras ResNet50 model (images classification) and Scikit-learn (Credit Risk) on IBM Cloud.
 Custom deployment provides REST API endpoints to score the model (predict image class) and to list deployment endpoints.
 
 **Note**: To be able to integrate custom deployment with [Watson OpenScale](https://console.bluemix.net/catalog/services/ai-openscale) features it must follow [REST API specification](https://aiopenscale-custom-deployement-spec.mybluemix.net/).

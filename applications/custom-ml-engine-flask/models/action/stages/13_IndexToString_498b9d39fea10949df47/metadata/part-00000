@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.IndexToString","timestamp":1539596494389,"sparkVersion":"2.3.0","uid":"IndexToString_498b9d39fea10949df47","paramMap":{"inputCol":"prediction","labels":["NA","Free Upgrade","On-demand pickup location","Voucher","Premium features"],"outputCol":"predictedActionLabel"}}

@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:  
+  name: custom-ml-engine-service
+  labels:
+    name: custom-ml-engine
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+      targetPort: 5000
+      nodePort: 31520
+
+  selector:
+    run: custom-ml-engine-deployment

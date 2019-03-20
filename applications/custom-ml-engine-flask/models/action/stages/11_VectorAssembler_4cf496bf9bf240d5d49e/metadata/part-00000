@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.VectorAssembler","timestamp":1539596493547,"sparkVersion":"2.3.0","uid":"VectorAssembler_4cf496bf9bf240d5d49e","paramMap":{"outputCol":"features","inputCols":["gender_ix","customer_status_ix","status_ix","owner_ix","Children","Age","Satisfaction","prediction_area"]}}

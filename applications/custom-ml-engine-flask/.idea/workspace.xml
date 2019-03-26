@@ -23,14 +23,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="score_resnet50.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="score_resnet50.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/score_resnet50.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="404">
-              <caret line="33" column="55" lean-forward="true" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+              <caret line="33" selection-start-line="33" selection-end-line="34" />
               <folding>
                 <element signature="e#1#51#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="score_credit.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/score_credit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -65,6 +74,7 @@
         <option value="$PROJECT_DIR$/score_example.py" />
         <option value="$PROJECT_DIR$/examples/score_example.py" />
         <option value="$PROJECT_DIR$/examples/score_resnet50.py" />
+        <option value="$PROJECT_DIR$/examples/score_credit.py" />
       </list>
     </option>
   </component>
@@ -107,6 +117,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/examples" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/examples" />
     </key>
@@ -203,10 +216,17 @@
     <entry file="file://$PROJECT_DIR$/examples/score_resnet50.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
-          <caret line="33" column="55" lean-forward="true" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+          <caret line="33" selection-start-line="33" selection-end-line="34" />
           <folding>
             <element signature="e#1#51#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/score_credit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
         </state>
       </provider>
     </entry>

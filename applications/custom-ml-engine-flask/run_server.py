@@ -53,34 +53,44 @@ def preprocess_image(image, target_shape=None):
 @app.route("/v1/deployments/resnet50/online", methods=["POST"])
 def resnet50_online():
     response = {}
+    images = []
     fields = ['probabilities', 'prediction', 'prediction_probability']
-    labels = []
-    probabilities = []
-    prediction_probability = 0.0
-    prediction = None
+    prediction_values = []
 
     if flask.request.method == "POST":
         payload = flask.request.get_json()
 
         if payload is not None:
-            image_list = payload['values']
-            image = preprocess_image(image_list)
+            images_list = payload['values']
+
+            for image in images_list:
+                images.append(preprocess_image(image))
 
             with backend.get_session().graph.as_default() as g:
-                scores = resnet50_model.predict(image)
+                scores = resnet50_model.predict(np.concatenate(images, axis=0))
 
             results = imagenet_utils.decode_predictions(scores)
 
-            for (imagenetID, label, probability) in results[0]:
-                probability = float(probability)
-                if probability > prediction_probability:
-                    prediction_probability = probability
-                    prediction = label
-                labels.append(label)
-                probabilities.append(probability)
+            for result in results:
+                labels = []
+                probabilities = []
+                prediction_probability = 0.0
+                prediction = None
 
-            response = {'fields': fields, 'labels': labels,
-                        'values': [[probabilities, prediction, prediction_probability]]}
+                for (imagenetID, label, probability) in result:
+                    probability = float(probability)
+                    if probability > prediction_probability:
+                        prediction_probability = probability
+                        prediction = label
+                    labels.append(label)
+                    probabilities.append(probability)
+
+                prediction_values.append([probabilities, prediction, prediction_probability])
+
+            if len(images_list) == 1:
+                response = {'fields': fields, 'labels': labels, 'values': prediction_values}
+            else:
+                response = {'fields': fields, 'values': prediction_values}
 
     return flask.jsonify(response)
 
@@ -99,29 +109,6 @@ def credit_online():
             predictions = credit_model['postprocessing'](credit_model['model'].predict(df))
             response = {'fields': ['prediction', 'probability'], 'labels': labels,
                         'values': list(map(list, list(zip(predictions, scores))))}
-
-    return flask.jsonify(response)
-
-
-@app.route("/v1/deployments/wallmart/online", methods=["POST"])
-def wallmart_online():
-    import requests, json
-    response = {}
-
-    if flask.request.method == "POST":
-        payload = flask.request.get_json()
-
-        if payload is not None:
-            scoring_data = {"data": payload['values']}
-            endpoint = 'http://20.184.57.73:80/score'
-
-            response = requests.post(endpoint, json=scoring_data)
-            predictions_list = []
-
-            for p in json.loads(response.json()):
-                predictions_list.append([p])
-
-            response = {'fields': ['prediction'], 'values': predictions_list}
 
     return flask.jsonify(response)
 
@@ -174,26 +161,6 @@ def get_deployments():
                         }
                     }
                 },
-                {
-                    "metadata": {
-                        "guid": "wallmart",
-                        "created_at": "2019-01-01T10:11:12Z",
-                        "modified_at": "2019-01-02T12:00:22Z"
-                    },
-                    "entity": {
-                        "name": "wallmart exercise",
-                        "description": "azure model deployment",
-                        "scoring_url": "{}/v1/deployments/wallmart/online".format(application_url),
-                        "asset": {
-                            "name": "wallmart",
-                            "guid": "wallmart"
-                        },
-                        "asset_properties": {
-                            "problem_type": "multiclass",
-                            "input_data_type": "structured",
-                        }
-                    }
-                }
             ]
         }
 

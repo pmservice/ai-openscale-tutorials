@@ -119,7 +119,7 @@ def get_deployments():
 
     if flask.request.method == "GET":
         response = {
-            "count": 3,
+            "count": 2,
             "resources": [
                 {
                     "metadata": {

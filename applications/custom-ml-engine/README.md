@@ -1,149 +1,112 @@
-# Custom machine learning engine
-## Serving Keras, Spark and Scikit-learn models
+## PythonWebAppwithFlaskKVVPG
 
-The repository contains the code for creating custom deployment of Keras ResNet50 model (images classification) and Spark MLlib (CARS4U) on IBM Cloud.
-Custom deployment provides REST API endpoints to score the model (predict image class) and to list deployment endpoints.
+Basic Web project with Python with Flask
 
-**Note**: To be able to integrate custom deployment with [Watson OpenScale](https://console.bluemix.net/catalog/services/ai-openscale) features it must follow [REST API specification](https://aiopenscale-custom-deployement-spec.mybluemix.net/).
+[![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
+![Platform](https://img.shields.io/badge/platform-PYTHON-lightgrey.svg?style=flat)
+
+### Table of Contents
+* [Summary](#summary)
+* [Requirements](#requirements)
+* [Configuration](#configuration)
+* [Run](#run)
+* [Debug](#debug)
+
+<a name="summary"></a>
+### Summary
+The Web basic starter contains an opinionated set of files for web serving:
+
+- `public/index.html`
+- `public/404.html`
+- `public/500.html`
 
 
-## Requirements
 
-- python 3.5 or 3.6
-- pip
-- python libs: cfenv, Flask, watson-developer-cloud, gevent, requests, tensorflow, keras, ibmcloudenv, livereload, pillow, numpy, scikit-learn
+<a name="enablement"></a>
+### IBM Cloud Enablement
 
-User also should have account on Bluemix (IBM Cloud) with active us-south region. 
+<a name="requirements"></a>
+### Requirements
+#### Local Development Tools Setup (optional)
+
+- If you don't already have it, install [Python](https://www.python.org/downloads/)
+
+#### IBM Cloud development tools setup (optional)
+
+1. Install [IBM Cloud Developer Tools](https://console.bluemix.net/docs/cli/idt/setting_up_idt.html#add-cli) on your machine  
+2. Install the plugin with: `bx plugin install dev -r bluemix`
 
 
-## Deployment
+#### IBM Cloud DevOps setup (optional)
 
-### Initial configuration
+[![Create Toolchain](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy/)
 
-Clone repository and enter cloned project directory:
+[IBM Cloud DevOps](https://www.ibm.com/cloud-computing/bluemix/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud. The "Create Toolchain" button creates a DevOps toolchain and acts as a single-click deploy to IBM Cloud including provisioning all required services. 
 
-   ```bash
-   $ git clone https://github.com/pmservice/ai-openscale-tutorials
-   $ cd applications/custom-ml-engine
-   ```
+***Note** you must publish your project to [Github](https://github.com/) for this to work.
 
-### Deployment and run on local environment
 
-Run:
+
+<a name="configuration"></a>
+### Configuration
+
+The project contains IBM Cloud specific files that are used to deploy the application as part of an IBM Cloud DevOps flow. The `.bluemix` directory contains files used to define the IBM Cloud toolchain and pipeline for your application. The `manifest.yml` file specifies the name of your application in IBM Cloud, the timeout value during deployment, and which services to bind to.
+
+Credentials are either taken from the VCAP_SERVICES environment variable if in IBM Cloud, or from a config file if running locally. 
+
+
+<a name="run"></a>
+### Run
+#### Using IBM Cloud development CLI
+The IBM Cloud development plugin makes it easy to compile and run your application if you do not have all of the tools installed on your computer yet. Your application will be compiled with Docker containers. To compile and run your app, run:
 
 ```bash
-$ pip install -r requirements.txt
-$ python run_server.py
-```
-
-Application server will be available at `127.0.0.1:5000`.
-
-
-### Deployment and run on IBM Cloud (Bluemix)
-
-1. Create Kubernetes Cluster on IBM Cloud
-
-    - select `US South` as cluster location
-    - use Free or Standard cluster type
-    
-2. When the provisioning is completed use worker node Public IP to update `PUBLIC_IP` value in [run_erver.py](run_server.py) file.
-![](images/public_ip.png)
-
-3. Install IBM Cloud prerequisites
-
-    https://console.bluemix.net/docs/containers/cs_tutorials.html#prerequisites
-    
-4. Create registry namespace
-
-    ```ibmcloud cr namespace-add <namespace>```
-    
-5. Config kubernetes cluster
-
-    ```bash
-    ibmcloud ks cluster-config <cluster_name_or_ID>
-    ```
-    Copy the returned command and run:
-    
-    ```bash
-    export KUBECONFIG=/Users/<user_name>/.bluemix/plugins/container-service/clusters/pr_firm_cluster/kube-config-prod-par02-pr_firm_cluster.yml
-    ```
-
-6. Build and publish docker image (`<region>` can be for example: `ng`)
-
-    ```bash
-    ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/custom-ml-engine:1 .
-    ```
-
-7. Deploy application and expose port
-
-    ```bash
-    kubectl run custom-ml-engine-deployment --image=registry.<region>.bluemix.net/<namespace>/custom-ml-engine:1
-    kubectl create -f service.yaml
-    ```
-
-8. Get exposed NodePort and worker node public IP
-
-    ```bash
-    kubectl describe service custom-ml-engine-service
-    ibmcloud ks workers <cluster_name_or_ID>
-    ```
-    
-Application will be available with the following URL: `http://<IP_address>:<NodePort>`
-
-## Submitting REST API requests
-
-### List deployments
-Request:
-```python
-KERAS_REST_API_URL = 'http://169.xx.xxx.xxx:30080/v1/deployments'
-header = {'Content-Type':'application/json'}
-r = requests.get(KERAS_REST_API_URL, headers=header)
-
-print(str(r.text))
-```
-Response:
-```json
-{"count":2,"resources":[{"entity":{"deployable_asset":{"created_at":"2016-12-01T10:11:12Z","guid":"569ac899-c0d1-4892-b09f-7415e7eb7948","name":"my ResNet50 model","type":"model","url":"http://github.com/models/my_model.h5"},"description":"description","model_type":"tf-1.5","name":"ResNet50 aios compliant deployment","runtime_environment":"py-3.5","scoring_url":"https://keras-resnet50.mybluemix.net/v1/deployments/aios_compliant/online","status":"ACTIVE","status_message":"string","type":"online"},"metadata":{"created_at":"2016-12-01T10:11:12Z","guid":"string","modified_at":"2016-12-02T12:00:22Z","url":"string"}},{"entity":{"deployable_asset":{"created_at":"2016-12-01T10:11:12Z","guid":"569ac899-c0d1-4892-b09f-7415e7eb79xx","name":"my ResNet50 model","type":"model","url":"http://github.com/models/my_model.h5"},"description":"description","model_type":"tf-1.5","name":"ResNet50 custom deployment","runtime_environment":"py-3.5","scoring_url":"https://keras-resnet50.mybluemix.net/v1/deployments/custom/online","status":"ACTIVE","status_message":"string","type":"online"},"metadata":{"created_at":"2016-12-01T10:11:12Z","guid":"string","modified_at":"2016-12-02T12:00:22Z","url":"string"}}]}
-```
-
-### Score
-
-Request:
-```python
-def prepare_payload(image_path):
-    image = Image.open(image_path)
-
-    if image.mode is not "RGB":
-        image = image.convert("RGB")
-
-    image = image.resize((224, 224))
-    image = img_to_array(image)
-    image = np.expand_dims(image, axis=0)
-    image = imagenet_utils.preprocess_input(image)
-    image_list = image.tolist()
-
-    return {'values': image_list}
-```
-```python
-KERAS_REST_API_URL = "http://169.xx.xxx.xxx:30080/v1/deployments/compliant/online"
-
-payload = prepare_payload('labrador.jpg')
-header = {'Content-Type':'application/json'}
-
-r = requests.post(KERAS_REST_API_URL, json=payload, headers=header)
-
-print(str(r.text))
-```
-Response:
-```json
-{"fields":["probabilities","prediction","prediction_probability"],"labels":["Labrador_retriever","Chesapeake_Bay_retriever","Rottweiler","curly-coated_retriever","Rhodesian_ridgeback"],"values":[[["0.70551187","0.22909379","0.030718252","0.0062348368","0.0053016352"],"Labrador_retriever","0.70551187"]]}
+bx dev build
+bx dev run
 ```
 
 
-## References:
-1. [The Keras Blog, "Building a simple Keras + deep learning REST API"](https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html)
-2. [AI OpenScale service](https://console.bluemix.net/catalog/services/ai-openscale)
-3. [REST API specification](https://aiopenscale-custom-deployement-spec.mybluemix.net/)
-4. [Sample notebook:  Custom deployment scoring examples](TBD)
-5. [Sample notebook: Data Mart configuration for custom deployment](TBD)
+#### Using your local development environment
+
+
+Running flask applications has been simplified with a `manage.py` file to avoid dealing with configuring environment variables to run your app.
+
+##### Usage
+```bash
+python manage.py subcommand [ipaddress]
+```
+
+##### Subcommands
+`manage.py` offers a variety of different run commands to match the proper situation:
+* `start`: starts a server in a production setting using `gunicorn`.
+* `run`: starts a native flask development server. This includes backend reloading upon file saves and the Werkzeug stack-trace debugger for diagnosing runtime failures in-browser.
+* `livereload`: starts a development server via the `livereload` package. This includes backend reloading as well as dynamic frontend browser reloading. The Werkzeug stack-trace debugger will be disabled, so this is only recommended when working on frontend development.
+* `debug`: starts a native flask development server, but with the native reloader/tracer disabled. This leaves the debug port exposed to be attached to an IDE (such as PyCharm's `Attach to Local Process`)
+
+There are also a few utility commands:
+* `build`: compiles `.py` files within the project directory into `.pyc` files
+* `test`: runs all unit tests inside of the project's `test` directory
+
+
+##### Endpoints
+
+Your application is running at: `http://localhost:3000/` in your browser.
+
+- Health endpoint: `/health`
+
+
+
+<a name="debug"></a>
+### Debug
+
+#### Using IBM Cloud development CLI
+To build and debug your app, run:
+```bash
+bx dev build --debug
+bx dev debug
+```
+#### Using your local development environment
+There are two different options for debugging a `flask` project:
+1. Run `python manage.py runserver` to start a native flask development server. This comes with the Werkzeug stack-trace debugger, which will present runtime failure stack-traces in-browser with the ability to inspect objects at any point in the trace. For more information, see [Werkzeug documentation](http://werkzeug.pocoo.org/).
+2. Run `python manage.py debug` to run a flask development server with debug exposed, but the native debugger/reloader turned off. This grants access for an IDE to attach itself to the process (i.e. in PyCharm, use `Run` -> `Attach to Local Process`)
 

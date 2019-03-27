@@ -1,0 +1,12 @@
+applications:
+- buildpack: python_buildpack
+  command: python manage.py start 0.0.0.0:$PORT
+  env:
+    FLASK_APP: server
+    FLASK_DEBUG: false
+  instances: 1
+  memory: 1024MB
+  name: PythonWebAppwithFlaskKVVPG
+  routes:
+  - route: python-web-app-with-flask-kvvpg.mybluemix.net
+  timeout: 180

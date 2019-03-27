@@ -1,11 +1,17 @@
-FROM jupyter/pyspark-notebook
+FROM python:3.6-alpine
 
-COPY run_server.py /home/jovyan/
-COPY requirements.txt /home/jovyan/
-COPY models /home/jovyan/models
+WORKDIR /app
 
-RUN pip install -r /home/jovyan/requirements.txt
+COPY requirements.txt /tmp/requirements.txt
+RUN apk --update add python py-pip openssl ca-certificates py-openssl wget bash linux-headers
+RUN apk --update add --virtual build-dependencies libffi-dev openssl-dev python-dev py-pip build-base \
+  && apk --no-cache --update-cache add gcc gfortran build-base freetype-dev libpng-dev openblas-dev \
+  && pip install numpy pandas \
+  && pip install --upgrade pip \
+  && pip install --upgrade pipenv\
+  && pip install --upgrade -r /tmp/requirements.txt\
+  && apk del build-dependencies
 
-EXPOSE 5000
-
-CMD python /home/jovyan/run_server.py
+COPY . /app
+ENV FLASK_APP=server/__init__.py
+CMD ["python", "manage.py", "start", "0.0.0.0:3000"]

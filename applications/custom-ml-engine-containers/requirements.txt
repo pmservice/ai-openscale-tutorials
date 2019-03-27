@@ -1,0 +1,14 @@
+cfenv==0.5.3
+Flask==1.0.2
+watson-developer-cloud==1.3.5
+gevent
+requests
+tensorflow
+keras
+ibmcloudenv
+livereload
+pillow
+numpy
+pyspark
+pandas
+scikit-learn

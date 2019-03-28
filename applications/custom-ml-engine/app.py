@@ -1,3 +1,22 @@
+import os
+from flask import Flask, abort, session, request, redirect
+from flask.json import jsonify
+
+app = Flask(__name__, static_url_path='')
+
+from server.routes import *
+from server.services import *
+
+initServices(app)
+
+if 'FLASK_LIVE_RELOAD' in os.environ and os.environ['FLASK_LIVE_RELOAD'] == 'true':
+	import livereload
+	app.debug = True
+	server = livereload.Server(app.wsgi_app)
+	server.serve(port=os.environ['port'], host=os.environ['host'])
+
+
+
 from keras.preprocessing.image import img_to_array
 from keras.applications import imagenet_utils
 from keras.applications import ResNet50
@@ -6,20 +25,13 @@ import pandas as pd
 import numpy as np
 import flask
 import os
-from pyspark.sql.session import SparkSession
 from sklearn.externals import joblib
+import xgboost as xgb
 
-
-PUBLIC_IP = "173.193.75.3"
-NODE_PORT = "31520"
-
-app = flask.Flask(__name__)
 resnet50_model = None
 action_model = None
 credit_model = None
-spark = SparkSession.builder.getOrCreate()
-application_url = "http://{}:{}".format(PUBLIC_IP, NODE_PORT)
-
+boston_model = None
 
 def load_resnet50_model():
     global resnet50_model
@@ -34,6 +46,12 @@ def load_credit_model():
     credit_model_path = os.path.join(os.getcwd(), 'models', 'credit', 'german_credit_risk.joblib')
     credit_model = joblib.load(credit_model_path)
 
+def load_boston_model():
+    global boston_model
+    import copy
+    boston_model_path = os.path.join(os.getcwd(), 'models', 'boston', 'boston-house-xgboost.model')
+    boston_model = xgb.Booster({'nthread': 1})
+    boston_model.load_model(boston_model_path)
 
 def preprocess_image(image, target_shape=None):
     if type(image) is list:
@@ -48,6 +66,11 @@ def preprocess_image(image, target_shape=None):
         image = imagenet_utils.preprocess_input(image)
 
     return image
+
+
+load_resnet50_model()
+load_credit_model()
+load_boston_model()
 
 
 @app.route("/v1/deployments/resnet50/online", methods=["POST"])
@@ -113,13 +136,31 @@ def credit_online():
     return flask.jsonify(response)
 
 
+@app.route("/v1/deployments/boston/online", methods=["POST"])
+def boston_online():
+    response = {}
+
+    if flask.request.method == "POST":
+        payload = flask.request.get_json()
+
+        if payload is not None:
+            df = pd.DataFrame.from_records(payload['values'], columns=payload['fields'])
+            tesdmat = xgb.DMatrix(df)
+            predictions = boston_model.predict(tesdmat).tolist()
+            response = {'fields': ['prediction'],
+                        'values': [predictions]}
+
+    return flask.jsonify(response)
+
+
 @app.route("/v1/deployments", methods=["GET"])
 def get_deployments():
     response = {}
 
     if flask.request.method == "GET":
+        host_url = flask.request.host
         response = {
-            "count": 2,
+            "count": 3,
             "resources": [
                 {
                     "metadata": {
@@ -130,7 +171,7 @@ def get_deployments():
                     "entity": {
                         "name": "ResNet50 AIOS compliant deployment",
                         "description": "Keras ResNet50 model deployment for image classification",
-                        "scoring_url": "{}/v1/deployments/resnet50/online".format(application_url),
+                        "scoring_url": "https://{}/v1/deployments/resnet50/online".format(host_url),
                         "asset": {
                               "name": "resnet50",
                               "guid": "resnet50"
@@ -150,7 +191,7 @@ def get_deployments():
                     "entity": {
                         "name": "German credit risk compliant deployment",
                         "description": "Scikit-learn credit risk model deployment",
-                        "scoring_url": "{}/v1/deployments/credit/online".format(application_url),
+                        "scoring_url": "https://{}/v1/deployments/credit/online".format(host_url),
                         "asset": {
                               "name": "credit",
                               "guid": "credit"
@@ -161,15 +202,27 @@ def get_deployments():
                         }
                     }
                 },
+                {
+                    "metadata": {
+                        "guid": "boston",
+                        "created_at": "2019-01-01T10:11:12Z",
+                        "modified_at": "2019-01-02T12:00:22Z"
+                    },
+                    "entity": {
+                        "name": "Boston Houses deployment",
+                        "description": "Boston houses XGboost model deployment",
+                        "scoring_url": "https://{}/v1/deployments/boston/online".format(host_url),
+                        "asset": {
+                              "name": "boston",
+                              "guid": "boston"
+                        },
+                        "asset_properties": {
+                               "problem_type": "regression",
+                               "input_data_type": "structured",
+                        }
+                    }
+                }
             ]
         }
 
     return flask.jsonify(response)
-
-
-if __name__ == "__main__":
-    load_resnet50_model()
-    load_credit_model()
-    port = os.getenv('PORT', '5000')
-    app.run(host='0.0.0.0', port=int(port))
-

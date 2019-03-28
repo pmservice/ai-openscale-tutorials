@@ -4,8 +4,6 @@ from flask.json import jsonify
 
 app = Flask(__name__, static_url_path='')
 
-initServices(app)
-
 if 'FLASK_LIVE_RELOAD' in os.environ and os.environ['FLASK_LIVE_RELOAD'] == 'true':
 	import livereload
 	app.debug = True

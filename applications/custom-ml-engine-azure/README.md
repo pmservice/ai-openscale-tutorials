@@ -37,7 +37,7 @@ Application server will be available at `127.0.0.1:5000`.
 
 ### Deployment and run on Azure Cloud (App Services)
 
-#### Login to Azure Portal and open bash console
+#### Login to Azure Portal and open Cloud Shell Console
 #### Using console clone git project, enter project directory and deploy app:
 ```bash
 $ git clone https://github.com/pmservice/ai-openscale-tutorials.git

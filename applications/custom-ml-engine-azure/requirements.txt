@@ -1,0 +1,8 @@
+Flask==0.11.1
+gunicorn==19.7.1
+pandas
+numpy
+scipy
+scikit-learn
+pillow
+requests

@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.StringIndexerModel","timestamp":1539596490025,"sparkVersion":"2.3.0","uid":"StringIndexer_4a1facef0552871daae3","paramMap":{"outputCol":"area_label","stringOrderType":"frequencyDesc","handleInvalid":"error","inputCol":"Business_Area"}}

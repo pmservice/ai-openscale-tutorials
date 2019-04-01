@@ -79,7 +79,6 @@ Response:
 
 
 ## References:
-1. [The Keras Blog, "Building a simple Keras + deep learning REST API"](https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html)
-2. [AI OpenScale service](https://console.bluemix.net/catalog/services/ai-openscale)
-3. [REST API specification](https://aiopenscale-custom-deployement-spec.mybluemix.net/)
+1. [AI OpenScale service](https://console.bluemix.net/catalog/services/ai-openscale)
+2. [REST API specification](https://aiopenscale-custom-deployement-spec.mybluemix.net/)
 

@@ -9,9 +9,8 @@ Custom deployment provides REST API endpoints to score the model and to list dep
 
 ## Requirements
 
-- python 3.5 or 3.6
+- python 3.5 or higher
 - pip
-- python libs: cfenv, Flask, watson-developer-cloud, gevent, requests, tensorflow, keras, ibmcloudenv, livereload, pillow, numpy, scikit-learn
 
 User also should have account on Azure Portal. 
 
@@ -51,7 +50,7 @@ $ az webapp up -n <your app name>
 ### List deployments
 Request:
 ```python
-APP_URL = <put your app hostname>
+APP_URL = <put your app url here>
 DEPOYMENTS_URL = APP_URL + '/v1/deployments'
 r = requests.get(DEPOYMENTS_URL)
 
@@ -65,7 +64,7 @@ Response:
 ### Score
 Request:
 ```python
-APP_URL = <put your app hostname>
+APP_URL = <put your app url here>
 SCORING_URL = APP_URL + '/v1/deployments/circle/online'
 payload={'fields':['radius'], 'values':[[10],[20]]}
 

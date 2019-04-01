@@ -68,7 +68,7 @@ r = requests.get(DEPLOYMENTS_URL, headers=header)
 print(str(r.text))
 ```
 Response:
-```json
+```text
 {'count': 2, 'resources': [{'metadata': {'guid': 'credit', 'modified_at': '2019-01-02T12:00:22Z', 'created_at': '2019-01-01T10:11:12Z'}, 'entity': {'description': 'Scikit-learn credit risk model deployment', 'asset': {'name': 'credit', 'guid': 'credit'}, 'scoring_url': 'https://custom-engine.azurewebsites.net/v1/deployments/credit/online', 'name': 'German credit risk compliant deployment', 'asset_properties': {'input_data_type': 'structured', 'problem_type': 'binary'}}}, {'metadata': {'guid': 'circle', 'modified_at': '2019-01-02T12:00:22Z', 'created_at': '2019-01-01T10:11:12Z'}, 'entity': {'description': 'Azure ML service circle surface prediction deployment', 'asset': {'name': 'circle', 'guid': 'circle'}, 'scoring_url': 'https://custom-engine.azurewebsites.net/v1/deployments/circle/online', 'name': 'Circle model deployment', 'asset_properties': {'input_data_type': 'structured', 'problem_type': 'regression'}}}]}
 ```
 
@@ -86,7 +86,7 @@ r = requests.post(SCORING_URL, json=payload, headers=header)
 print(str(r.text))
 ```
 Response:
-```json
+```text
 {'values': [[314.3231432314323], [1257.2925729257292]], 'fields': ['area']}
 ```
 

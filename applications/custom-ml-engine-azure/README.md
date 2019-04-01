@@ -51,8 +51,8 @@ $ az webapp up -n <your app name>
 Request:
 ```python
 APP_URL = <put your app url here>
-DEPOYMENTS_URL = APP_URL + '/v1/deployments'
-r = requests.get(DEPOYMENTS_URL)
+DEPLOYMENTS_URL = APP_URL + '/v1/deployments'
+r = requests.get(DEPLOYMENTS_URL)
 
 print(str(r.text))
 ```

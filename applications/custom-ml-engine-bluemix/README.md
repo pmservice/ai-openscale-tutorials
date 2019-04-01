@@ -1,5 +1,5 @@
 # Custom machine learning engine
-## Serving Keras, Spark and Scikit-learn models
+## Serving Keras, Azure and Scikit-learn models on IBM Cloud (bluemix)
 
 The repository contains the code for creating custom deployment of Keras ResNet50 model (images classification) and Scikit-learn (Credit Risk) on IBM Cloud.
 Custom deployment provides REST API endpoints to score the model (predict image class) and to list deployment endpoints.

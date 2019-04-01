@@ -18,18 +18,14 @@ User also should have account on Azure Portal.
 
 ## Deployment
 
-### Initial configuration
-
-Clone repository and enter cloned project directory:
+### Deployment and run on local environment
+#### Clone repository and enter cloned project directory:
 
    ```bash
    $ git clone https://github.com/pmservice/ai-openscale-tutorials
    $ cd ai-openscale-tutorials/applications/custom-ml-engine-azure
    ```
-
-### Deployment and run on local environment
-
-Run:
+#### Run:
 
 ```bash
 $ pip install -r requirements.txt

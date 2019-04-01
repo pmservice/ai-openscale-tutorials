@@ -10,7 +10,3 @@ sklearn
 scikit-learn
 pillow
 requests
-h5py
-tensorflow==1.5.1
-keras-preprocessing
-keras==2.1.3

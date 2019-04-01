@@ -1,15 +1,15 @@
 import os
-from flask import Flask, abort, session, request, redirect
-from flask.json import jsonify
+from flask import Flask
+
 
 app = Flask(__name__, static_url_path='')
+
 
 if 'FLASK_LIVE_RELOAD' in os.environ and os.environ['FLASK_LIVE_RELOAD'] == 'true':
 	import livereload
 	app.debug = True
 	server = livereload.Server(app.wsgi_app)
 	server.serve(port=os.environ['port'], host=os.environ['host'])
-
 
 
 from keras.preprocessing.image import img_to_array
@@ -21,18 +21,21 @@ import numpy as np
 import flask
 import os
 from sklearn.externals import joblib
-import xgboost as xgb
+import requests
+import json
+
 
 resnet50_model = None
 action_model = None
 credit_model = None
 boston_model = None
 
+
 def load_resnet50_model():
     global resnet50_model
 
     with backend.get_session().graph.as_default() as g:
-            resnet50_model = ResNet50(weights="imagenet")
+        resnet50_model = ResNet50(weights="imagenet")
 
 
 def load_credit_model():
@@ -41,12 +44,6 @@ def load_credit_model():
     credit_model_path = os.path.join(os.getcwd(), 'models', 'credit', 'german_credit_risk.joblib')
     credit_model = joblib.load(credit_model_path)
 
-def load_boston_model():
-    global boston_model
-    import copy
-    boston_model_path = os.path.join(os.getcwd(), 'models', 'boston', 'boston-house-xgboost.model')
-    boston_model = xgb.Booster({'nthread': 1})
-    boston_model.load_model(boston_model_path)
 
 def preprocess_image(image, target_shape=None):
     if type(image) is list:
@@ -65,7 +62,6 @@ def preprocess_image(image, target_shape=None):
 
 load_resnet50_model()
 load_credit_model()
-load_boston_model()
 
 
 @app.route("/v1/deployments/resnet50/online", methods=["POST"])
@@ -131,19 +127,25 @@ def credit_online():
     return flask.jsonify(response)
 
 
-@app.route("/v1/deployments/boston/online", methods=["POST"])
-def boston_online():
+@app.route("/v1/deployments/circle/online", methods=["POST"])
+def circle_online():
     response = {}
+    scoring_url = 'http://52.180.94.47:80/score'
+    prediction_field = 'area'
+    predictions = []
 
     if flask.request.method == "POST":
         payload = flask.request.get_json()
 
         if payload is not None:
-            df = pd.DataFrame.from_records(payload['values'], columns=payload['fields'])
-            tesdmat = xgb.DMatrix(df)
-            predictions = boston_model.predict(tesdmat).tolist()
-            response = {'fields': ['prediction'],
-                        'values': [predictions]}
+            values = payload['values']
+            fields = payload['fields']
+
+            for value in values:
+                result = json.loads(requests.post(scoring_url, json={fields[0]: value[0]}).json())
+                predictions.append([result[prediction_field]])
+
+            response = {'fields': [prediction_field], 'values': predictions}
 
     return flask.jsonify(response)
 
@@ -155,7 +157,7 @@ def get_deployments():
     if flask.request.method == "GET":
         host_url = flask.request.host
         response = {
-            "count": 3,
+            "count": 4,
             "resources": [
                 {
                     "metadata": {
@@ -199,21 +201,21 @@ def get_deployments():
                 },
                 {
                     "metadata": {
-                        "guid": "boston",
+                        "guid": "circle",
                         "created_at": "2019-01-01T10:11:12Z",
                         "modified_at": "2019-01-02T12:00:22Z"
                     },
                     "entity": {
-                        "name": "Boston Houses deployment",
-                        "description": "Boston houses XGboost model deployment",
-                        "scoring_url": "https://{}/v1/deployments/boston/online".format(host_url),
+                        "name": "Circle model deployment",
+                        "description": "Azure ML service circle surface prediction deployment",
+                        "scoring_url": "https://{}/v1/deployments/circle/online".format(host_url),
                         "asset": {
-                              "name": "boston",
-                              "guid": "boston"
+                            "name": "circle",
+                            "guid": "circle"
                         },
                         "asset_properties": {
-                               "problem_type": "regression",
-                               "input_data_type": "structured",
+                            "problem_type": "regression",
+                            "input_data_type": "structured",
                         }
                     }
                 }

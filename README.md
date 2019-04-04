@@ -1,6 +1,6 @@
 # IBM Watson OpenScale tutorials.
 
-## IBM Cloud (public)
+## IBM Cloud
 **Tutorial 1. Working with Watson Machine Learning engine** 
 - Step 1: Credit risk prediction model creation, deployment as web-service and monitoring using Watson OpenScale - [notebook](https://github.com/emartensibm/german-credit/blob/master/german_credit_lab.ipynb) 
 
@@ -19,6 +19,6 @@
 - Step 2: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20SageMaker%20ML%20Engine.ipynb)
 
 
-## ICP (private)
+## IBM Cloud Private
 **Tutorial 5. Working with IBM SPSS C&DS engine**
 - Step 1: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20SPSS%20C%26DS%20Engine.ipynb)

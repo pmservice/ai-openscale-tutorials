@@ -2,7 +2,7 @@
 
 ## IBM Cloud
 **Tutorial 1. Working with Watson Machine Learning engine** 
-- Step 1: Credit risk prediction model creation, deployment as web-service and monitoring using Watson OpenScale - [notebook](https://github.com/emartensibm/german-credit/blob/master/german_credit_lab.ipynb) 
+- Step 1: Credit risk prediction model creation, deployment as web-service and monitoring using Watson OpenScale - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Watson%20OpenScale%20and%20Watson%20ML%20Engine.ipynb) 
 
 
 **Tutorial 2. Working with Custom Machine Learning engine**
@@ -22,3 +22,10 @@
 ## IBM Cloud Private
 **Tutorial 5. Working with IBM SPSS C&DS engine**
 - Step 1: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20SPSS%20C%26DS%20Engine.ipynb)
+
+**Tutorial 6. Working with Watson Machine Learning engine on ICP**
+- Step 1: Credit risk prediction model creation, deployment as web-service and monitoring using Watson OpenScale - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Watson%20OpenScale%20and%20Watson%20ML%20Engine%20-%20ICP.ipynb) 
+
+
+
+

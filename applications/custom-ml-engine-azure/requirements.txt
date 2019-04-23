@@ -4,5 +4,4 @@ pandas
 numpy
 scipy
 scikit-learn
-pillow
 requests

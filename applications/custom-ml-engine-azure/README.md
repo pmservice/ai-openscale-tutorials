@@ -28,7 +28,7 @@ User also should have account on Azure Portal.
 
 ```bash
 $ pip install -r requirements.txt
-$ export PYTHON_FLASK=app.py
+$ export FLASK_APP=app.py
 $ python -m flask run
 ```
 

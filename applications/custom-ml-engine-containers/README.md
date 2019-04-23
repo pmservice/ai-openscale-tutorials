@@ -46,7 +46,7 @@ Application server will be available at `127.0.0.1:5000`.
     - select `US South` as cluster location
     - use Free or Standard cluster type
     
-2. When the provisioning is completed use worker node Public IP to update `PUBLIC_IP` value in [run_erver.py](run_server.py) file.
+2. When the provisioning is completed use worker node Public IP to update `PUBLIC_IP` value in [run_server.py](run_server.py) file.
 ![](images/public_ip.png)
 
 3. Install IBM Cloud prerequisites

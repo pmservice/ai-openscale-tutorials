@@ -8,5 +8,4 @@ numpy
 scipy
 sklearn
 scikit-learn
-pillow
 requests

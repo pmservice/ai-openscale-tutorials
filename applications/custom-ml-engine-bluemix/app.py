@@ -1,16 +1,14 @@
 import os
 from flask import Flask
 
-
 app = Flask(__name__, static_url_path='')
 
-
 if 'FLASK_LIVE_RELOAD' in os.environ and os.environ['FLASK_LIVE_RELOAD'] == 'true':
-	import livereload
-	app.debug = True
-	server = livereload.Server(app.wsgi_app)
-	server.serve(port=os.environ['port'], host=os.environ['host'])
+    import livereload
 
+    app.debug = True
+    server = livereload.Server(app.wsgi_app)
+    server.serve(port=os.environ['port'], host=os.environ['host'])
 
 import pandas as pd
 import flask
@@ -18,7 +16,6 @@ import os
 from sklearn.externals import joblib
 import requests
 import json
-
 
 credit_model = None
 
@@ -94,12 +91,12 @@ def get_deployments():
                         "description": "Scikit-learn credit risk model deployment",
                         "scoring_url": "https://{}/v1/deployments/credit/online".format(host_url),
                         "asset": {
-                              "name": "credit",
-                              "guid": "credit"
+                            "name": "credit",
+                            "guid": "credit"
                         },
                         "asset_properties": {
-                               "problem_type": "binary",
-                               "input_data_type": "structured",
+                            "problem_type": "binary",
+                            "input_data_type": "structured",
                         }
                     }
                 },

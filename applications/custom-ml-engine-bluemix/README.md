@@ -33,7 +33,7 @@ Run:
 
 ```bash
 $ pip install -r requirements.txt
-$ export PYTHON_FLASK=app.py
+$ export FLASK_APP=app.py
 $ python -m flask run
 ```
 

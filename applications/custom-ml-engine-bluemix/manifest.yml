@@ -4,9 +4,8 @@ applications:
   env:
     FLASK_APP: app.py
     FLASK_DEBUG: false
-  instances: 3
-  memory: 2048MB
-  disk_quota: 1024M
+  instances: 1
+  memory: 256MB
   name: <APP_NAME>
   routes:
   - route: <APP_ROUTE>

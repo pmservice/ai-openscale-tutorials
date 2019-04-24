@@ -12,4 +12,4 @@ spec:
       nodePort: 31520
 
   selector:
-    run: custom-ml-engine-deployment
+    app: custom-ml-engine-deployment

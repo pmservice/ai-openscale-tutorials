@@ -53,11 +53,51 @@ Application server will be available at `127.0.0.1:5000`.
 
     https://console.bluemix.net/docs/containers/cs_tutorials.html#prerequisites
     
-4. Create registry namespace
+4. Make sure that the docker is running
 
-    ```ibmcloud cr namespace-add <namespace>```
+5. Login to IBM Cloud using cli
+
+    ```bash
+    ibmcloud login -a https://cloud.ibm.com
+    ```
     
-5. Config kubernetes cluster
+6. Create registry namespace
+
+    ```bash
+    ibmcloud cr namespace-add <namespace>
+    ```
+    
+7. Log your local Docker daemon into the IBM Cloud Container Registry
+
+    ```bash
+    ibmcloud cr login
+    ```
+    
+8. Build local docker image
+
+    ```bash
+    docker build -f Dockerfile -t custom-ml-engine:1 .
+    ```
+    
+9. Tag created image
+    
+    ```bash
+    docker tag custom-ml-engine:1 us.icr.io/<namespace>/<repositoryname>:1
+    ```
+    
+10. Push local image to IBM Cloud registry
+
+    ```bash
+    docker push us.icr.io/<namespace>/<repositoryname>:1
+    ```
+    
+11. Verify that your image is in your private registry
+
+    ```bash
+    ibmcloud cr image-list
+    ```
+    
+12. Config kubernetes cluster
 
     ```bash
     ibmcloud ks cluster-config <cluster_name_or_ID>
@@ -68,20 +108,19 @@ Application server will be available at `127.0.0.1:5000`.
     export KUBECONFIG=/Users/<user_name>/.bluemix/plugins/container-service/clusters/pr_firm_cluster/kube-config-prod-par02-pr_firm_cluster.yml
     ```
 
-6. Build and publish docker image (`<region>` can be for example: `ng`)
+13. Create a deployment of an image
 
     ```bash
-    ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/custom-ml-engine:1 .
+    kubectl create deployment custom-ml-engine-deployment --image=us.icr.io/<namespace>/<repositoryname>:1
     ```
-
-7. Deploy application and expose port
+    
+14. Expose application as a public service:
 
     ```bash
-    kubectl run custom-ml-engine-deployment --image=registry.<region>.bluemix.net/<namespace>/custom-ml-engine:1
     kubectl create -f service.yaml
     ```
 
-8. Get exposed NodePort and worker node public IP
+15. Get exposed NodePort and worker node public IP
 
     ```bash
     kubectl describe service custom-ml-engine-service

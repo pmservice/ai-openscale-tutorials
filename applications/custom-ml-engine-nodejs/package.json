@@ -1,0 +1,23 @@
+{
+  "name": "custom-serve-engine",
+  "dependencies": {
+    "aws4": "^1.8.0",
+    "body-parser": "1.18.3",
+    "btoa": "^1.2.1",
+    "express": "4.16.3",
+    "express-basic-auth": "^1.1.6",
+    "lodash": "^4.17.11",
+    "log4js": "0.6.32",
+    "request": "2.87.0"
+  },
+  "devDependencies": {
+    "eslint": "4.10.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  }
+}

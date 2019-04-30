@@ -1,0 +1,15 @@
+applications:
+- name: <app name>
+  host: <host name>
+  path: .
+  command: node ./server.js
+  instances: 1
+  memory: 128M
+  disk_quota: 256M
+  buildpack: sdk-for-nodejs
+  env:
+    AZURE_APIKEY: <azure api key for deployment>
+    AWS_ACCESS_KEY_ID: <aws account access key>
+    AWS_SECRET_ACCESS_KEY: <aws account secret key>
+    WML_USERNAME: <wml username>
+    WML_PASSWORD: <wml password>

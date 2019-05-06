@@ -1,0 +1,143 @@
+{
+  "resources": [
+    {
+      "metadata": {
+        "guid": "84c465e6-f87c-440f-a6ed-17fabf9454ac",
+        "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/84c465e6-f87c-440f-a6ed-17fabf9454ac/online",
+        "created_at": "2018-11-15T06:21:07.3891381Z",
+        "modified_at": "2018-11-15T06:21:18.1790311Z"
+      },
+      "entity": {
+        "name": "AWS Iris MultiClass Deployment",
+        "type": "online",
+        "scoring_endpoint": {
+          "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/84c465e6-f87c-440f-a6ed-17fabf9454ac/online"
+        },
+        "asset": {
+          "asset_id": "9742b71413c0feefe6de831afc8775ca",
+          "name": "AWS Iris MultiClass",
+          "asset_type": "model",
+          "created_at": "2018-11-15T06:21:07.3891381Z"
+        },
+        "asset_properties": {
+        }
+      }
+    },
+    {
+      "metadata": {
+        "guid": "3e508dbd-0fca-4921-92f5-41fc1a8eabee",
+        "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/3e508dbd-0fca-4921-92f5-41fc1a8eabee/online",
+        "created_at": "2018-11-15T06:21:07.3891381Z",
+        "modified_at": "2018-11-15T06:21:18.1790311Z"
+      },
+      "entity": {
+        "name": "Azure ProductLine MultiClass With Prediction",
+        "type": "online",
+        "scoring_endpoint": {
+          "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/3e508dbd-0fca-4921-92f5-41fc1a8eabee/online"
+        },
+        "asset": {
+          "asset_id": "3b8ba1e5-3cbb-4030-a5f9-c54bfe8b00be",
+          "name": "ProductLineClass.2018.11.2.11.40.22.845",
+          "asset_type": "model",
+          "created_at": "2018-11-15T06:21:07.3891381Z"
+        },
+        "asset_properties": {
+        }
+      }
+    },
+    {
+      "metadata": {
+        "guid": "8e7b63f1-55d3-414f-a94b-c950434879c9",
+        "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/8e7b63f1-55d3-414f-a94b-c950434879c9/online",
+        "created_at": "2019-02-05T06:21:07.3891381Z",
+        "modified_at": "2019-02-05T06:21:18.1790311Z"
+      },
+      "entity": {
+        "name": "Azure ProductLine MultiClass",
+        "type": "online",
+        "scoring_endpoint": {
+          "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/8e7b63f1-55d3-414f-a94b-c950434879c9/online"
+        },
+        "asset": {
+          "asset_id": "b1c0eb7b-3ece-45c1-a46f-881f0271ff4e",
+          "name": "ProductLineClass.2018.11.2.11.40.22.845",
+          "asset_type": "model",
+          "created_at": "2018-11-15T06:21:07.3891381Z"
+        },
+        "asset_properties": {
+        }
+      }
+    },
+    {
+      "metadata": {
+        "guid": "30a0b186-7931-4c96-bb3f-40d3020291d0",
+        "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/30a0b186-7931-4c96-bb3f-40d3020291d0/online",
+        "created_at": "2018-11-15T06:21:07.3891381Z",
+        "modified_at": "2018-11-15T06:21:18.1790311Z"
+      },
+      "entity": {
+        "name": "Azure ProductLine MultiClass With Only Probability",
+        "type": "online",
+        "scoring_endpoint": {
+          "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/30a0b186-7931-4c96-bb3f-40d3020291d0/online"
+        },
+        "asset": {
+          "asset_id": "81e38261-7211-4a64-9ef2-4d7b80f3e34d",
+          "name": "ProductLineClass.2018.11.2.11.40.22.845",
+          "asset_type": "model",
+          "created_at": "2018-11-15T06:21:07.3891381Z"
+        },
+        "asset_properties": {
+        }
+      }
+    },
+    {
+      "metadata": {
+        "guid": "3ba2834c-9847-4b16-a1aa-39116c406b6a",
+        "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/3ba2834c-9847-4b16-a1aa-39116c406b6a/online",
+        "created_at": "2019-01-15T06:21:07.3891381Z",
+        "modified_at": "2019-01-15T06:21:18.1790311Z"
+      },
+      "entity": {
+        "name": "WML Text - SMS Spam Deployment",
+        "type": "online",
+        "scoring_endpoint": {
+          "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/3ba2834c-9847-4b16-a1aa-39116c406b6a/online"
+        },
+        "asset": {
+          "asset_id": "6c6dd690-599c-4522-9368-ebfa7c7513fb",
+          "name": "WML Text - SMS Spam Model",
+          "asset_type": "model",
+          "created_at": "2019-01-15T06:21:07.3891381Z"
+        },
+        "asset_properties": {
+        }
+      }
+    },
+    {
+      "metadata": {
+        "guid": "5f381f58-c188-4cc1-a0f7-f91f8f869c93",
+        "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/5f381f58-c188-4cc1-a0f7-f91f8f869c93/online",
+        "created_at": "2019-01-15T08:24:07.3891381Z",
+        "modified_at": "2019-01-15T08:24:18.1790311Z"
+      },
+      "entity": {
+        "name": "WML Image - MNIST Digits Deployment",
+        "type": "online",
+        "scoring_endpoint": {
+          "url": "https://custom-serve-engine.mybluemix.net/v1/deployments/5f381f58-c188-4cc1-a0f7-f91f8f869c93/online"
+        },
+        "asset": {
+          "asset_id": "6afbc3fd-2001-4632-9592-e0cf3524c996",
+          "name": "WML Image - MNIST Digits Model",
+          "asset_type": "model",
+          "created_at": "2019-01-15T08:24:07.3891381Z"
+        },
+        "asset_properties": {
+        }
+      }
+    }
+  ],
+  "count": 4
+}

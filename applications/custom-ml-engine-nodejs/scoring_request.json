@@ -1,0 +1,14 @@
+{
+  "Inputs": {
+          "input1":
+          [
+              {
+                      "GENDER": "F",   
+                      "AGE": "27",   
+                      "MARITAL_STATUS": "Single",   
+                      "PROFESSION": "Professional",   
+                      "PRODUCT_LINE": "Personal Accessories"
+              }
+          ]
+  }
+}

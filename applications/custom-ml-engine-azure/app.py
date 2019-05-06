@@ -46,7 +46,7 @@ def credit_online():
 @app.route("/v1/deployments/circle/online", methods=["POST"])
 def circle_online():
     response = {}
-    scoring_url = 'http://52.180.94.47:80/score'
+    scoring_url = 'http://13.86.235.42:80/score'
     prediction_field = 'area'
     predictions = []
 

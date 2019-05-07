@@ -79,60 +79,47 @@ def convert_values(array):
     return values
 
 
-@app.route("/v1/deployments/resnet50_non_compliant/online", methods=["POST"])
-def non_compliant_resnet50_online():
-    response = {}
-    predictions = []
-
-    if flask.request.method == "POST":
-        if flask.request.files.get("image"):
-            image = flask.request.files["image"].read()
-            image = Image.open(io.BytesIO(image))
-            image = preprocess_image(image, target_shape=(224, 224))
-
-            with backend.get_session().graph.as_default() as g:
-                scores = resnet50_model.predict(image)
-            results = imagenet_utils.decode_predictions(scores)
-
-            for (imagenetID, label, prob) in results[0]:
-                predictions.append({'prediction': label, 'probability': str(prob)})
-
-            response = {"Results:": predictions}
-
-    return flask.jsonify(response)
-
-
 @app.route("/v1/deployments/resnet50/online", methods=["POST"])
 def resnet50_online():
     response = {}
+    images = []
     fields = ['probabilities', 'prediction', 'prediction_probability']
-    labels = []
-    probabilities = []
-    prediction_probability = 0.0
-    prediction = None
+    prediction_values = []
 
     if flask.request.method == "POST":
         payload = flask.request.get_json()
 
         if payload is not None:
-            image_list = payload['values']
-            image = preprocess_image(image_list)
+            images_list = payload['values']
+
+            for image in images_list:
+                images.append(preprocess_image(image))
 
             with backend.get_session().graph.as_default() as g:
-                scores = resnet50_model.predict(image)
+                scores = resnet50_model.predict(np.concatenate(images, axis=0))
 
             results = imagenet_utils.decode_predictions(scores)
 
-            for (imagenetID, label, probability) in results[0]:
-                probability = float(probability)
-                if probability > prediction_probability:
-                    prediction_probability = probability
-                    prediction = label
-                labels.append(label)
-                probabilities.append(probability)
+            for result in results:
+                labels = []
+                probabilities = []
+                prediction_probability = 0.0
+                prediction = None
 
-            response = {'fields': fields, 'labels': labels,
-                        'values': [[probabilities, prediction, prediction_probability]]}
+                for (imagenetID, label, probability) in result:
+                    probability = float(probability)
+                    if probability > prediction_probability:
+                        prediction_probability = probability
+                        prediction = label
+                    labels.append(label)
+                    probabilities.append(probability)
+
+                prediction_values.append([probabilities, prediction, prediction_probability])
+
+            if len(images_list) == 1:
+                response = {'fields': fields, 'labels': labels, 'values': prediction_values}
+            else:
+                response = {'fields': fields, 'values': prediction_values}
 
     return flask.jsonify(response)
 

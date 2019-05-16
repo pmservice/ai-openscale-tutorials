@@ -27,5 +27,9 @@
 - Step 1: Credit risk prediction model creation, deployment as web-service and monitoring using Watson OpenScale - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Watson%20OpenScale%20and%20Watson%20ML%20Engine%20-%20ICP.ipynb) 
 
 
-
-
+## Microsoft Azure Cloud
+**Tutorial 7. Working with not directly supported engine through Custom ML Engine**
+- Step 1: Credit risk model (scikit-learn) deployment on Azure ML Service - [notebook]()
+- Step 2: Creation of Custom Machine Learning engine and deployment on Azure Cloud as flask application - [deployment instruction]()
+- Step 3: OpenScale configuration to work with Custom ML Engine - [deployment instruction]()
+- Step 4: Creation of scoring endpoint wrapper to automate payload logging on Azure ML Service - [notebook]()

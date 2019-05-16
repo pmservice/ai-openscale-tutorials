@@ -34,6 +34,12 @@ $ python -m flask run
 
 Application server will be available at `127.0.0.1:5000`.
 
+#### Test locally:
+
+```bash
+$ cd ai-openscale-tutorials/applications/custom-ml-engine-azure/examples
+$ python score_credit.py
+```
 
 ### Deployment and run on Azure Cloud (App Services)
 

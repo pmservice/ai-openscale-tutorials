@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 
 
@@ -21,9 +20,9 @@ def convert_user_output_2_openscale(output_data):
 def convert_openscale_input_2_user(input_data):
     openscale_fields = input_data['fields']
     openscale_values = input_data['values']
-
     users_records = [{k: v for k, v in zip(openscale_fields, rec)} for rec in openscale_values]
-    return users_records
+
+    return {'input': users_records}
 
 
 @app.route("/v1/deployments/credit/online", methods=["POST"])
@@ -40,8 +39,7 @@ def credit_online():
         if payload is not None:
             user_input = convert_openscale_input_2_user(payload)
             response = requests.post(scoring_endpoint, json=user_input, headers=scoring_headers)
-            output_data = response.json()
-            openscale_output = convert_user_output_2_openscale(output_data)
+            openscale_output = convert_user_output_2_openscale(response.json())
 
     return flask.jsonify(openscale_output)
 

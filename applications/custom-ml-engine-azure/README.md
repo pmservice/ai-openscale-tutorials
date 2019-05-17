@@ -1,5 +1,5 @@
 # Custom machine learning engine
-## Serving Microsoft Azure Service deployment and scikit-learn model
+## Serving Microsoft Azure Service deployment (scikit-learn model)
 
 The repository contains the code for creating custom deployment of Azure sample circle model (regression) and scikit-learn (Credit Risk) on Azure Cloud.
 Custom deployment provides REST API endpoints to score the model and to list deployment endpoints.

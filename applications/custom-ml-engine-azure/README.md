@@ -1,5 +1,5 @@
 # Custom machine learning engine
-## Serving Microsoft Azure Service deployment and scikit-learn model
+## Serving Microsoft Azure Service deployment (scikit-learn model)
 
 The repository contains the code for creating custom deployment of Azure sample circle model (regression) and scikit-learn (Credit Risk) on Azure Cloud.
 Custom deployment provides REST API endpoints to score the model and to list deployment endpoints.
@@ -34,6 +34,12 @@ $ python -m flask run
 
 Application server will be available at `127.0.0.1:5000`.
 
+#### Test locally:
+
+```bash
+$ cd ai-openscale-tutorials/applications/custom-ml-engine-azure/examples
+$ python score_credit.py
+```
 
 ### Deployment and run on Azure Cloud (App Services)
 
@@ -50,31 +56,27 @@ $ az webapp up -n <your app name>
 ### List deployments
 Request:
 ```python
+import requests
+
 APP_URL = <put your app url here>
 DEPLOYMENTS_URL = APP_URL + '/v1/deployments'
 r = requests.get(DEPLOYMENTS_URL)
 
 print(str(r.text))
 ```
-Response:
-```text
-{'count': 2, 'resources': [{'metadata': {'guid': 'credit', 'modified_at': '2019-01-02T12:00:22Z', 'created_at': '2019-01-01T10:11:12Z'}, 'entity': {'description': 'Scikit-learn credit risk model deployment', 'asset': {'name': 'credit', 'guid': 'credit'}, 'scoring_url': 'https://custom-engine.azurewebsites.net/v1/deployments/credit/online', 'name': 'German credit risk compliant deployment', 'asset_properties': {'input_data_type': 'structured', 'problem_type': 'binary'}}}, {'metadata': {'guid': 'circle', 'modified_at': '2019-01-02T12:00:22Z', 'created_at': '2019-01-01T10:11:12Z'}, 'entity': {'description': 'Azure ML service circle surface prediction deployment', 'asset': {'name': 'circle', 'guid': 'circle'}, 'scoring_url': 'https://custom-engine.azurewebsites.net/v1/deployments/circle/online', 'name': 'Circle model deployment', 'asset_properties': {'input_data_type': 'structured', 'problem_type': 'regression'}}}]}
-```
 
 ### Score
 Request:
 ```python
+import requests
+
 APP_URL = <put your app url here>
-SCORING_URL = APP_URL + '/v1/deployments/circle/online'
-payload={'fields':['radius'], 'values':[[10],[20]]}
+SCORING_URL = APP_URL + '/v1/deployments/credit/online'
+payload={'fields': ['CheckingStatus', 'LoanDuration', 'CreditHistory', 'LoanPurpose', 'LoanAmount', 'ExistingSavings', 'EmploymentDuration', 'InstallmentPercent', 'Sex', 'OthersOnLoan', 'CurrentResidenceDuration', 'OwnsProperty', 'Age', 'InstallmentPlans', 'Housing', 'ExistingCreditsCount', 'Job', 'Dependents', 'Telephone', 'ForeignWorker'], 'values': [['no_checking', 13, 'credits_paid_to_date', 'car_new', 1343, '100_to_500', '1_to_4', 2, 'female', 'none', 3, 'savings_insurance', 25, 'none', 'own', 2, 'skilled', 1, 'none', 'yes'], ['no_checking', 24, 'prior_payments_delayed', 'furniture', 4567, '500_to_1000', '1_to_4', 4, 'male', 'none', 4, 'savings_insurance', 60, 'none', 'free', 2, 'management_self-employed', 1, 'none', 'yes']]}
 
 r = requests.post(SCORING_URL, json=payload)
 
 print(str(r.json()))
-```
-Response:
-```text
-{'values': [[314.3231432314323], [1257.2925729257292]], 'fields': ['area']}
 ```
 
 

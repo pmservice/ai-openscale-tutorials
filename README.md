@@ -19,7 +19,7 @@
 - Step 2: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20SageMaker%20ML%20Engine.ipynb)
 
 
-## IBM Cloud Private
+## IBM Cloud Private for Data
 **Tutorial 5. Working with IBM SPSS C&DS engine**
 - Step 1: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20SPSS%20C%26DS%20Engine.ipynb)
 

@@ -37,3 +37,8 @@
 - Step 2: Creation of Custom Machine Learning engine and deployment on Azure Cloud as flask application - [deployment instruction](https://github.com/pmservice/ai-openscale-tutorials/tree/master/applications/custom-ml-engine-azure)
 - Step 3: OpenScale configuration to work with Custom ML Engine - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/azure/OpenScale%20and%20Custom%20ML%20Engine%20configuration.ipynb)
 - Step 4: Creation of scoring endpoint wrapper to automate payload logging on Azure ML Service - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/azure/Credit%20scoring%20endpoint%20wrapper%20with%20payload%20logging.ipynb)
+
+## Beta Features
+**Watson OpenScale Model Risk Management**
+- Tutorial 1. Model Risk Management OpenPages Integration demo with Watson Machine Learning engines on Cloud- [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/beta_features/mrm/notebooks/IBM_CloudOP_MRM.ipynb)
+- Tutorial 2. Model Risk Management OpenPages Integration demo with Watson Machine Learning engines on CP4D- [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/beta_features/mrm/notebooks/IBM_CP4DOP_MRM.ipynb)

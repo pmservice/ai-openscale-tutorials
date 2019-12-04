@@ -68,3 +68,11 @@ assets/historical_data/german_credit_risk/.DS_Store
 assets/historical_data/.DS_Store
 assets/.DS_Store
 .DS_Store
+
+.idea/vcs.xml
+
+.idea/ai-openscale-tutorials.iml
+
+.idea/misc.xml
+
+.idea/modules.xml

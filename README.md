@@ -40,5 +40,11 @@
 
 ## Beta Features
 **Watson OpenScale Model Risk Management**
-- Tutorial 1. Model Risk Management OpenPages Integration demo with Watson Machine Learning engines on Cloud- [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/beta_features/mrm/notebooks/IBM_CloudOP_MRM.ipynb)
-- Tutorial 2. Model Risk Management OpenPages Integration demo with Watson Machine Learning engines on CP4D- [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/beta_features/mrm/notebooks/IBM_CP4DOP_MRM.ipynb)
+
+On Cloud
+- Tutorial 1. OpenScale Model Risk Governance with OpenPages Integration on IBM Cloud - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/OpenScale%20and%20OpenPages%20model%20risk%20management%20on%20IBM%20Cloud.ipynb)
+- Tutorial 2. OpenScale Model Risk Management on IBM Cloud - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/OpenScale%20model%20risk%20management%20on%20IBM%20Cloud.ipynb)
+
+On Cloud Pak for Data
+- Tutorial 3. OpenScale Model Risk Governance with OpenPages Integration on Cloud Pack for Data - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/OpenScale%20and%20OpenPages%20model%20risk%20management%20on%20Cloud%20Pak%20for%20Data.ipynb)
+- Tutorial 4. OpenScale Model Risk Management on Cloud Pak for Data - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/OpenScale%20model%20risk%20management%20on%20Cloud%20Pak%20for%20Data.ipynb)

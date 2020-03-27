@@ -38,7 +38,7 @@
 - Step 3: OpenScale configuration to work with Custom ML Engine - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/azure/OpenScale%20and%20Custom%20ML%20Engine%20configuration.ipynb)
 - Step 4: Creation of scoring endpoint wrapper to automate payload logging on Azure ML Service - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/azure/Credit%20scoring%20endpoint%20wrapper%20with%20payload%20logging.ipynb)
 
-## Beta Features
+## Model Risk Management and Governance Features
 **Watson OpenScale Model Risk Management**
 
 On Cloud
@@ -48,3 +48,6 @@ On Cloud
 On Cloud Pak for Data
 - Tutorial 3. OpenScale Model Risk Governance with OpenPages Integration on Cloud Pack for Data - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/OpenScale%20and%20OpenPages%20model%20risk%20management%20on%20Cloud%20Pak%20for%20Data.ipynb)
 - Tutorial 4. OpenScale Model Risk Management on Cloud Pak for Data - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/OpenScale%20model%20risk%20management%20on%20Cloud%20Pak%20for%20Data.ipynb)
+
+Metrics Mapping
+- Tutorial 5. OpenScale MRM metrics mapping - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Openscale%20MRM%20Metrics%20Mapping.ipynb)

@@ -1,0 +1,101 @@
+Age,BusinessTravel,Department,DistanceFromHome,Education,EducationField,RelevantEducationLevel,JobLevel,JobRole,MaritalStatus,NumCompaniesWorked,OverTime,InterviewScore,ResumeScore,RequestedBenefits,TotalWorkingYears,PreferredSkills,YearsAtCurrentCompany,RelevantExperience,JobType,SalaryExpectation,Ethnicity,Gender,HIRED
+35,Travel_Rarely,Research & Development,5,Bachelor,Life Sciences,Low,Entry Level,Laboratory Technician,Divorced,2,Yes,Low,Outstanding,Yes,2,Medium,1,0,full_time,High,minority,Female,NO
+29,Travel_Frequently,Research & Development,1,Master,Life Sciences,Medium,Entry Level,Research Scientist,Divorced,4,No,High,Outstanding,Yes,5,Medium,10,2,full_time,High,non-minority,Male,NO
+50,Travel_Frequently,Sales,1,Master,Life Sciences,High,Intermediate,Sales Executive,Divorced,7,No,High,Outstanding,No,12,High,6,3,full_time,Average,non-minority,Male,YES
+41,Travel_Rarely,Sales,20,Below College,Marketing,High,Experienced,Sales Executive,Divorced,0,Yes,High,Low,Yes,3,High,22,1,full_time,High,non-minority,Female,NO
+41,Non-Travel,Research & Development,7,Below College,Life Sciences,Low,Experienced,Research Director,Divorced,1,No,Low,Average,No,21,High,0.3,16,full_time,High,minority,Female,NO
+40,Non-Travel,Research & Development,16,College,Life Sciences,High,Entry Level,Research Scientist,Divorced,5,No,Average,Average,Yes,4,High,4,2,full_time,Average,non-minority,Male,NO
+58,Non-Travel,Research & Development,1,Master,Life Sciences,Low,Intermediate,Healthcare Representative,Divorced,2,Yes,High,Outstanding,Yes,12,Medium,5,3,full_time,Average,non-minority,Male,NO
+49,Travel_Rarely,Research & Development,18,Master,Life Sciences,Medium,Experienced,Research Director,Divorced,4,Yes,Low,High,Yes,5,Medium,31,2,contract,High,minority,Male,NO
+31,Travel_Rarely,Research & Development,26,Below College,Life Sciences,Medium,Entry Level,Research Scientist,Divorced,4,No,Low,Outstanding,Yes,5,Medium,5,2,contract,High,minority,Male,NO
+34,Travel_Rarely,Sales,1,Master,Marketing,Very High,Intermediate,Sales Executive,Divorced,0,No,Outstanding,Outstanding,Yes,16,Medium,15,1,contract,Low,non-minority,Male,YES
+43,Travel_Rarely,Research & Development,12,Bachelor,Life Sciences,Medium,Experienced,Research Director,Divorced,1,No,Low,High,Yes,25,High,25,10,full_time,Low,minority,Male,NO
+30,Travel_Rarely,Sales,12,Bachelor,Life Sciences,High,Entry Level,Sales Executive,Divorced,1,No,High,High,Yes,7,Medium,5,2,full_time,Average,non-minority,Male,YES
+23,Travel_Rarely,Sales,2,Below College,Technical Degree,High,Entry Level,Sales Representative,Divorced,3,No,Low,High,Yes,3,High,0,0,full_time,Average,minority,Male,NO
+28,Travel_Rarely,Research & Development,9,Bachelor,Medical,High,Entry Level,Research Scientist,Divorced,5,No,Low,Average,Yes,6,Medium,2,2,full_time,High,minority,Female,NO
+37,Travel_Rarely,Sales,10,Master,Life Sciences,Medium,Intermediate,Sales Executive,Divorced,2,Yes,Outstanding,High,Yes,8,Medium,1,0,full_time,Average,minority,Female,NO
+55,Non-Travel,Research & Development,8,Below College,Medical,Medium,Experienced,Healthcare Representative,Divorced,1,Yes,Average,Average,Yes,34,Medium,33,2,full_time,Average,non-minority,Male,NO
+45,Travel_Rarely,Research & Development,1,Master,Medical,Medium,Experienced,Research Director,Divorced,4,No,Low,Outstanding,No,10,High,2,4,contract,High,minority,Female,NO
+42,Travel_Rarely,Research & Development,12,Bachelor,Medical,Medium,Entry Level,Laboratory Technician,Divorced,1,No,Average,Average,Yes,7,Medium,5,2,full_time,High,non-minority,Male,NO
+41,Travel_Rarely,Research & Development,2,Master,Life Sciences,Low,Entry Level,Laboratory Technician,Divorced,4,Yes,Outstanding,High,Yes,10,Low,7,7,contract,Average,non-minority,Female,NO
+53,Travel_Rarely,Research & Development,5,Bachelor,Other,High,Experienced,Manager,Divorced,4,No,High,Outstanding,Yes,26,High,14,13,contract,Low,non-minority,Female,YES
+42,Travel_Rarely,Research & Development,12,Bachelor,Medical,Medium,Entry Level,Laboratory Technician,Divorced,1,No,Average,Average,Yes,7,Medium,5,2,full_time,High,non-minority,Male,NO
+44,Travel_Frequently,Research & Development,1,College,Medical,High,Entry Level,Research Scientist,Divorced,1,Yes,Average,High,Yes,6,Medium,5,3,contract,Average,non-minority,Male,YES
+31,Travel_Rarely,Research & Development,26,Below College,Life Sciences,Medium,Entry Level,Research Scientist,Divorced,4,No,Low,Outstanding,Yes,5,Medium,5,2,contract,High,minority,Male,NO
+40,Travel_Rarely,Research & Development,1,Bachelor,Life Sciences,High,Intermediate,Healthcare Representative,Divorced,4,No,Outstanding,Outstanding,Yes,12,High,5,3,contract,High,non-minority,Female,NO
+50,Travel_Rarely,Research & Development,2,Master,Medical,High,Experienced,Research Director,Married,2,Yes,High,Outstanding,Yes,29,Medium,8,1,full_time,Low,non-minority,Male,YES
+24,Travel_Rarely,Research & Development,17,College,Other,Medium,Entry Level,Laboratory Technician,Married,1,No,Average,Outstanding,Yes,1,Medium,1,0,contract,High,minority,Male,NO
+30,Non-Travel,Research & Development,3,Bachelor,Life Sciences,High,Entry Level,Laboratory Technician,Married,4,No,Outstanding,High,Yes,9,High,5,3,full_time,Average,non-minority,Male,YES
+42,Travel_Rarely,Sales,1,College,Medical,High,Intermediate,Sales Executive,Married,3,No,High,Low,Yes,11,Medium,5,1,contract,Average,non-minority,Female,YES
+44,Travel_Rarely,Research & Development,7,Master,Medical,Medium,Experienced,Healthcare Representative,Married,3,No,Outstanding,Outstanding,Yes,24,High,22,6,full_time,High,non-minority,Female,NO
+28,Travel_Frequently,Sales,1,Bachelor,Technical Degree,High,Entry Level,Sales Representative,Married,3,No,Low,Outstanding,Yes,5,High,3,2,full_time,Average,minority,Male,NO
+30,Travel_Rarely,Sales,10,Bachelor,Life Sciences,Medium,Entry Level,Sales Representative,Married,2,No,High,Low,No,10,Low,6,6,full_time,Average,non-minority,Male,YES
+53,Travel_Rarely,Sales,2,Master,Life Sciences,Medium,Experienced,Manager,Married,1,No,Outstanding,Average,No,31,Medium,0,2,full_time,Average,non-minority,Female,NO
+35,Travel_Rarely,Research & Development,5,Below College,Life Sciences,Low,Entry Level,Research Scientist,Married,2,Yes,Low,Outstanding,No,2,Medium,3,0,full_time,Average,minority,Male,NO
+31,Travel_Rarely,Human Resources,18,Doctorate,Human Resources,Very High,Entry Level,Human Resources,Married,0,No,Low,High,No,2,High,1,0,full_time,High,non-minority,Male,NO
+38,Travel_Frequently,Research & Development,2,College,Medical,Medium,Entry Level,Laboratory Technician,Married,4,No,Average,Average,Yes,9,High,6,1,full_time,Average,non-minority,Female,YES
+50,Travel_Rarely,Sales,9,Bachelor,Marketing,High,Experienced,Manager,Married,4,Yes,High,High,Yes,27,Medium,1,0,full_time,Average,minority,Male,NO
+45,Travel_Rarely,Sales,11,Bachelor,Medical,Medium,Entry Level,Sales Representative,Married,4,No,Average,Average,Yes,10,High,1,4,full_time,Average,non-minority,Female,NO
+31,Travel_Rarely,Sales,6,Master,Life Sciences,Low,Intermediate,Sales Executive,Married,4,Yes,High,Average,No,12,High,7,7,full_time,High,non-minority,Male,YES
+36,Travel_Rarely,Research & Development,26,Master,Life Sciences,High,Intermediate,Healthcare Representative,Married,5,No,Low,Average,Yes,4,High,3,2,contract,Average,minority,Male,NO
+37,Travel_Rarely,Sales,6,Master,Medical,High,Intermediate,Sales Executive,Married,4,No,Outstanding,Average,Yes,7,Medium,5,4,full_time,Average,non-minority,Male,NO
+34,Travel_Rarely,Research & Development,20,Master,Life Sciences,High,Intermediate,Research Scientist,Married,0,No,Outstanding,Low,Yes,3,High,2,1,full_time,High,non-minority,Male,NO
+30,Non-Travel,Sales,25,College,Technical Degree,High,Intermediate,Sales Executive,Married,7,Yes,Low,Average,Yes,4,Medium,2,2,full_time,High,minority,Female,NO
+37,Travel_Rarely,Research & Development,10,Bachelor,Medical,Medium,Entry Level,Laboratory Technician,Married,4,No,High,Average,Yes,5,Medium,0,2,full_time,High,non-minority,Female,NO
+48,Travel_Frequently,Research & Development,4,Doctorate,Medical,Medium,Experienced,Manager,Married,2,No,Outstanding,Average,Yes,23,High,2,2,full_time,High,non-minority,Male,NO
+26,Travel_Rarely,Research & Development,2,College,Medical,Very High,Intermediate,Manufacturing Director,Married,1,No,Outstanding,Average,No,8,Medium,8,7,contract,Average,non-minority,Male,YES
+27,Travel_Rarely,Research & Development,1,College,Life Sciences,High,Experienced,Manufacturing Director,Married,1,No,Low,Outstanding,No,9,High,0.6,7,full_time,Low,non-minority,Female,NO
+27,Travel_Rarely,Research & Development,5,Bachelor,Medical,Low,Entry Level,Research Scientist,Married,2,No,High,Low,No,2,Medium,3,0,full_time,High,non-minority,Female,NO
+40,Travel_Rarely,Sales,9,College,Medical,High,Intermediate,Sales Executive,Married,0,No,Low,Outstanding,No,9,Medium,8,4,full_time,Average,non-minority,Male,YES
+43,Travel_Rarely,Research & Development,14,College,Life Sciences,High,Experienced,Research Director,Married,6,No,Low,High,Yes,22,High,4,1,full_time,High,non-minority,Male,NO
+33,Travel_Frequently,Research & Development,1,Master,Other,Very High,Intermediate,Healthcare Representative,Married,1,Yes,Average,Low,Yes,6,Medium,6,5,full_time,Average,non-minority,Female,YES
+45,Travel_Rarely,Research & Development,3,Below College,Life Sciences,Medium,Intermediate,Manufacturing Director,Married,4,Yes,Low,Low,Yes,10,High,0.6,4,contract,High,minority,Female,NO
+51,Travel_Rarely,Research & Development,9,Master,Life Sciences,Medium,Entry Level,Laboratory Technician,Married,1,No,Outstanding,Average,No,10,Medium,4,2,full_time,High,non-minority,Male,NO
+36,Travel_Rarely,Sales,10,Master,Technical Degree,Medium,Intermediate,Sales Executive,Married,1,Yes,Average,Low,Yes,10,High,9,8,full_time,Average,non-minority,Female,YES
+38,Travel_Rarely,Research & Development,2,Master,Life Sciences,High,Intermediate,Manufacturing Director,Married,9,No,High,Average,No,14,High,1,0,contract,Average,minority,Male,NO
+35,Non-Travel,Research & Development,11,College,Medical,Medium,Experienced,Healthcare Representative,Married,2,Yes,Low,High,Yes,10,High,4,0,full_time,Average,non-minority,Male,NO
+34,Travel_Rarely,Sales,5,Below College,Life Sciences,Low,Intermediate,Sales Executive,Married,2,No,Low,Low,No,2,Medium,0.3,0,full_time,High,minority,Female,NO
+28,Non-Travel,Sales,4,Bachelor,Medical,High,Intermediate,Sales Executive,Married,1,No,Average,Average,No,5,High,5,3,full_time,Average,non-minority,Male,YES
+52,Travel_Rarely,Research & Development,5,Bachelor,Other,High,Intermediate,Manufacturing Director,Married,0,No,High,Low,Yes,11,Medium,10,7,full_time,High,minority,Female,YES
+54,Travel_Rarely,Human Resources,19,Master,Medical,High,Experienced,Human Resources,Married,2,No,Average,High,Yes,16,Low,9,7,full_time,Average,minority,Male,YES
+25,Travel_Rarely,Research & Development,9,Below College,Medical,Low,Entry Level,Laboratory Technician,Married,2,Yes,Low,Low,Yes,5,Medium,4,3,full_time,Average,non-minority,Male,YES
+57,Travel_Rarely,Research & Development,1,College,Life Sciences,Very High,Intermediate,Research Scientist,Married,0,No,Low,Low,Yes,13,Medium,12,9,full_time,High,minority,Female,NO
+33,Travel_Rarely,Research & Development,14,Bachelor,Medical,Medium,Entry Level,Research Scientist,Married,4,No,Low,Outstanding,Yes,5,Medium,8,2,full_time,Average,minority,Female,NO
+55,Travel_Rarely,Research & Development,4,Master,Life Sciences,High,Intermediate,Healthcare Representative,Married,0,Yes,High,Average,No,4,Medium,3,2,full_time,Average,non-minority,Male,NO
+38,Travel_Rarely,Research & Development,18,Bachelor,Medical,Low,Intermediate,Healthcare Representative,Married,3,Yes,Outstanding,High,Yes,15,Medium,1,0,contract,Average,non-minority,Male,NO
+45,Non-Travel,Research & Development,1,Master,Medical,Medium,Intermediate,Manufacturing Director,Married,4,No,Low,High,No,10,High,3,4,full_time,Average,minority,Female,NO
+45,Travel_Rarely,Research & Development,10,College,Life Sciences,High,Entry Level,Research Scientist,Married,3,No,Outstanding,Outstanding,No,8,High,2,2,full_time,High,non-minority,Male,NO
+36,Travel_Rarely,Sales,2,College,Medical,Medium,Experienced,Sales Executive,Married,1,No,Average,Average,Yes,10,Low,10,8,full_time,Average,non-minority,Male,YES
+34,Travel_Frequently,Research & Development,7,Bachelor,Life Sciences,Low,Intermediate,Laboratory Technician,Single,1,Yes,High,Outstanding,No,9,High,9,7,full_time,High,minority,Male,YES
+20,Travel_Frequently,Research & Development,6,Bachelor,Life Sciences,Medium,Entry Level,Laboratory Technician,Single,1,Yes,Outstanding,Average,No,1,Medium,1,0,full_time,High,minority,Female,NO
+27,Travel_Rarely,Research & Development,3,Master,Medical,Medium,Entry Level,Research Scientist,Single,0,No,Outstanding,Outstanding,No,5,Low,4,2,full_time,Average,non-minority,Male,NO
+28,Travel_Rarely,Research & Development,5,Master,Technical Degree,Medium,Entry Level,Laboratory Technician,Single,4,Yes,High,High,Yes,5,Medium,2,2,full_time,Average,non-minority,Male,NO
+32,Travel_Rarely,Research & Development,2,Master,Medical,Very High,Intermediate,Research Scientist,Single,7,No,Outstanding,High,No,10,Low,7,7,contract,Average,non-minority,Female,YES
+38,Travel_Rarely,Research & Development,1,Below College,Life Sciences,High,Entry Level,Research Scientist,Single,5,No,Average,Outstanding,Yes,4,High,0,2,full_time,High,non-minority,Female,NO
+45,Travel_Rarely,Sales,5,Bachelor,Life Sciences,Low,Intermediate,Sales Executive,Single,2,No,High,High,No,2,Medium,5,0,full_time,High,non-minority,Female,NO
+53,Travel_Rarely,Research & Development,6,Bachelor,Life Sciences,High,Intermediate,Laboratory Technician,Single,2,No,Outstanding,Outstanding,No,19,High,2,2,contract,High,non-minority,Female,NO
+32,Travel_Rarely,Research & Development,1,Below College,Life Sciences,Medium,Entry Level,Research Scientist,Single,1,No,Low,Average,No,1,Medium,1,2,full_time,Average,non-minority,Male,NO
+35,Travel_Rarely,Research & Development,9,Master,Medical,High,Intermediate,Research Scientist,Single,5,No,Low,Average,Yes,4,High,10,2,full_time,High,minority,Female,NO
+32,Travel_Rarely,Research & Development,29,Master,Life Sciences,Medium,Entry Level,Laboratory Technician,Single,1,No,Low,Average,No,6,Medium,0.3,2,full_time,Average,minority,Female,NO
+38,Travel_Rarely,Sales,1,Master,Life Sciences,Medium,Intermediate,Sales Executive,Single,4,No,Outstanding,High,No,12,Medium,8,3,full_time,High,non-minority,Female,NO
+48,Travel_Rarely,Research & Development,4,Master,Life Sciences,Medium,Experienced,Healthcare Representative,Single,7,No,High,Average,No,27,High,15,11,full_time,Average,minority,Male,YES
+45,Travel_Rarely,Sales,2,Bachelor,Medical,Medium,Entry Level,Sales Representative,Single,4,No,Low,Low,No,10,High,2,4,full_time,High,minority,Female,NO
+32,Travel_Frequently,Research & Development,2,College,Life Sciences,High,Entry Level,Laboratory Technician,Single,0,No,Outstanding,High,No,8,Medium,7,7,contract,Average,non-minority,Male,YES
+52,Travel_Rarely,Research & Development,2,Bachelor,Life Sciences,Medium,Entry Level,Laboratory Technician,Single,7,No,Outstanding,Average,No,6,High,0.3,2,full_time,High,non-minority,Female,NO
+40,Travel_Frequently,Research & Development,20,Master,Medical,Medium,Intermediate,Laboratory Technician,Single,0,No,High,Low,No,3,High,1,1,full_time,Average,minority,Male,NO
+28,Travel_Rarely,Research & Development,8,College,Life Sciences,High,Entry Level,Research Scientist,Single,1,No,Outstanding,Outstanding,No,5,High,5,3,full_time,High,non-minority,Female,NO
+26,Travel_Rarely,Research & Development,4,College,Life Sciences,High,Entry Level,Research Scientist,Single,1,Yes,Outstanding,Average,No,8,Medium,8,5,full_time,High,non-minority,Male,NO
+32,Non-Travel,Research & Development,5,Master,Technical Degree,High,Entry Level,Research Scientist,Single,2,No,Low,Average,No,12,High,7,7,full_time,Average,minority,Male,NO
+40,Travel_Rarely,Research & Development,9,Master,Life Sciences,Medium,Entry Level,Laboratory Technician,Single,1,No,Low,Average,No,15,Medium,5,2,contract,Average,non-minority,Male,NO
+21,Travel_Rarely,Sales,12,Bachelor,Life Sciences,Very High,Entry Level,Sales Representative,Single,1,No,Average,Outstanding,No,1,Low,1,0,full_time,Average,minority,Female,NO
+39,Travel_Frequently,Research & Development,2,Master,Technical Degree,High,Experienced,Healthcare Representative,Single,0,No,High,Outstanding,No,20,Low,19,6,full_time,High,non-minority,Female,YES
+27,Travel_Frequently,Sales,20,Bachelor,Life Sciences,High,Intermediate,Sales Executive,Single,1,No,High,Outstanding,No,7,Medium,7,7,full_time,Average,non-minority,Female,YES
+34,Travel_Rarely,Research & Development,5,Bachelor,Medical,Medium,Experienced,Manager,Single,1,No,Low,Average,No,14,Medium,11,2,full_time,Average,non-minority,Female,NO
+31,Travel_Frequently,Research & Development,29,College,Medical,Medium,Entry Level,Laboratory Technician,Single,0,No,Low,Average,No,6,Medium,5,4,full_time,Low,minority,Male,NO
+27,Travel_Rarely,Sales,2,College,Medical,Very High,Intermediate,Sales Executive,Single,0,No,Low,Average,No,9,Medium,8,7,full_time,High,minority,Female,NO
+27,Travel_Rarely,Research & Development,7,Bachelor,Medical,High,Intermediate,Healthcare Representative,Single,5,No,Average,Low,Yes,4,High,7,2,full_time,High,non-minority,Female,NO
+41,Non-Travel,Sales,10,College,Medical,Low,Intermediate,Sales Executive,Single,1,No,Low,Low,No,19,High,19,2,full_time,Average,minority,Male,NO
+36,Travel_Rarely,Research & Development,17,College,Life Sciences,High,Entry Level,Research Scientist,Single,3,No,Average,Low,No,8,Low,1,0,full_time,High,non-minority,Male,YES
+36,Travel_Rarely,Sales,9,Master,Life Sciences,Medium,Entry Level,Sales Representative,Single,7,No,Low,Average,No,10,High,5,3,full_time,High,non-minority,Male,NO
+36,Non-Travel,Sales,8,Master,Life Sciences,Medium,Experienced,Sales Executive,Single,1,No,Low,Average,No,10,Low,10,7,full_time,Average,non-minority,Male,YES
+52,Travel_Rarely,Research & Development,7,Master,Life Sciences,High,Experienced,Healthcare Representative,Single,7,No,Low,Outstanding,No,18,High,8,6,contract,High,minority,Male,NO

@@ -23,16 +23,20 @@
 - Step 1: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Watson%20OpenScale%20and%20Azure%20ML%20Service%20Engine.ipynb)
 
 
-## IBM Cloud Private for Data
+## IBM Cloud Pak for Data
 **Tutorial 5. Working with IBM SPSS C&DS engine**
 - Step 1: Data mart creation, model deployment monitoring and data analysis - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/AI%20OpenScale%20and%20SPSS%20C%26DS%20Engine.ipynb)
 
 **Tutorial 6. Working with Watson Machine Learning engine on CP4D**
 - Step 1: Credit risk prediction model creation, deployment as web-service and monitoring using Watson OpenScale - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Watson%20OpenScale%20and%20Watson%20ML%20Engine%20-%20CP4D.ipynb) 
 
+**Tutorial 7. Generating an explanation for an image-based model on Cloud Pak for Data v. 2.5.0**
+- Step 1: - Watson OpenScale Explanation for Image Multiclass Classification Model CP4D - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Watson%20OpenScale%20Explanation%20for%20Image%20Multiclass%20Classification%20Model%20CP4D.ipynb)
+
+
 
 ## Microsoft Azure Cloud
-**Tutorial 7. Working with not directly supported engine through Custom ML Engine**
+**Tutorial 8. Working with not directly supported engine through Custom ML Engine**
 - Step 1: Credit risk model (scikit-learn) deployment on Azure ML Service - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/azure/Credit%20model%20with%20Azure%20ML%20Service%20and%20scikit-learn.ipynb)
 - Step 2: Creation of Custom Machine Learning engine and deployment on Azure Cloud as flask application - [deployment instruction](https://github.com/pmservice/ai-openscale-tutorials/tree/master/applications/custom-ml-engine-azure)
 - Step 3: OpenScale configuration to work with Custom ML Engine - [notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/azure/OpenScale%20and%20Custom%20ML%20Engine%20configuration.ipynb)

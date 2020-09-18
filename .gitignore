@@ -78,3 +78,4 @@ assets/.DS_Store
 .idea/modules.xml
 
 .ipynb_checkpoints
+.vscode

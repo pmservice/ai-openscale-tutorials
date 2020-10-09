@@ -1,4 +1,4 @@
-**IMPORTANT NOTE:** Watson machine learning and Openscale have released new versions of SDKs available for general use. Current available samples uses old SDKs and will be obsolate and removed in next couple months. Please use new SDKs ([WML](http://ibm-wml-api-pyclient.mybluemix.net/) and [Openscale](http://ibm-watson-openscale-client.mybluemix.net/)) to build new models.
+**IMPORTANT NOTE:** Watson machine learning and Openscale have released newer versions of SDKs available for general use. Current available samples use old SDKs and will be obsolate and removed in next couple months. Please use new SDKs going forward([WML](http://ibm-wml-api-pyclient.mybluemix.net/) and [Openscale](http://ibm-watson-openscale-client.mybluemix.net/)) to build new models and monitor using Openscale.
 
 ## For samples using latest SDKs, please check followings:
 

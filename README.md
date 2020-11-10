@@ -1,10 +1,8 @@
 **IMPORTANT NOTE:** Watson machine learning and Openscale have released newer versions of SDKs available for general use. Current available samples use old SDKs and will be obsolate and removed in next couple months. Please use new SDKs going forward([WML](http://ibm-wml-api-pyclient.mybluemix.net/) and [Openscale](http://ibm-watson-openscale-client.mybluemix.net/)) to build new models and monitor using Openscale.
 
-## For samples using latest SDKs, please check followings:
+## For samples using latest SDKs and runtimes, please go to following location:
+ https://github.com/IBM/watson-openscale-samples
 
-- IBM Cloud [here](https://github.com/pmservice/ai-openscale-tutorials/tree/master/notebooks/IBM%20Cloud/python_sdk)
-
-- Cloud Pak for Data [here](https://github.com/pmservice/ai-openscale-tutorials/tree/master/notebooks/Cloud%20Pak%20for%20Data/python_sdk)
 
 # IBM Watson OpenScale tutorials.
 
